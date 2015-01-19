@@ -21,6 +21,16 @@
               <br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
           </div>
+           <div class="row">
+            <div class="col-md-12">TOOLS BOX #3
+              <br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-md-12">TOOLS BOX #4
+              <br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
+          </div>
         </div>
          <div class="col-md-1" style="padding-top: 15px;padding-bottom: 15px;background-color: #FFF;border: 0;">
         </div>
