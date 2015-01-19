@@ -1,0 +1,19 @@
+#Options -Indexes
+Options FollowSymLinks
+RewriteEngine on
+
+
+#Autres redirections]
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^index.php	[L]
+
+#Admin
+#RewriteRule ^admin/$										admin/index.php?pg=accueil [L]
+
+
+#Erreurs
+#ErrorDocument 404 /
+#ErrorDocument 403 /
