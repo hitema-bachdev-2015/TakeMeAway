@@ -13,6 +13,11 @@ h4 {
   margin-top: 0;
 }
 
+.col-md-7 {
+  padding: 0 !important;
+  height: 602px;
+}
+
 [class*="col-"] {
   padding-top: 15px;
   padding-bottom: 15px;
