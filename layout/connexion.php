@@ -40,11 +40,8 @@
             </tr>
             
          </table>
-         
          <input type="submit" name="connexion" value="Se connecter"/>
-      
       </form>
    
-   </body>
-        
+   </body>    
 </html>
