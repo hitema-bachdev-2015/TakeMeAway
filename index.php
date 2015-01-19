@@ -3,10 +3,15 @@
 	require_once("header.php"); 
 
 	// Page à appeler
-	$page = $_GET['pg'];
+	$page = explode('/', $_SERVER['REQUEST_URI']);
+	if(empty($page[3])) {
+		$page ="accueil.php";
+	}else{
+		$page = $page[3];
+	}
 	
-	include("script/".$page.".php");
-	include("layout/".$page.".php");
+	include("script/".$page);
+	include("layout/".$page);
 
 	include("include/footer.php");
 ?>
