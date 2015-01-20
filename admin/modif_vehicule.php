@@ -15,7 +15,7 @@
   </script>
 </head>
 <body>
- <?php include("../php/bdd.php"); ?>
+ <?php include("../script/bdd.php"); ?>
 <div id="tabs">
   <ul>
     <li><a href="#profil">Profil</a></li>
