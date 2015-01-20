@@ -9,7 +9,8 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>TakeMeAway!</title>
-
+        <!-- google.maps.classes import-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places,geometry"></script>
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/ie-emulation-modes-warning.js"></script>
@@ -26,7 +27,8 @@
 
 	<!-- insertion de mes scripts JS -->
 	<script type="text/javascript" src="js/index.js"></script>
-
+    <script type="text/javascript" src="js/barreDeRecherche.js"></script>    
+    
 	<!-- insertion des liens css -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
