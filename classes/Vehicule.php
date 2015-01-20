@@ -1,5 +1,7 @@
 <?
-class Category {
+include("./php/bdd.php")
+
+class Vehicule {
 	private $id;
 	private $id_utilisateur;
 	private $marque;
