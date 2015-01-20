@@ -1,5 +1,4 @@
-<?php 
-	require_once("script/bdd.php"); 
+<?php  
 	require_once("header.php"); 
 
 	// Page à appeler

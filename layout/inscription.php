@@ -1,4 +1,9 @@
-<?php captcha(); ?>
+<?php captcha(); 
+if(isset($error_mail) && $error_mail == "error"){ ?>
+	<div class="notification_ok">
+		<span>Cette adresse mail est déjà utilisée.</span>
+	</div>
+<?php } ?>
 <h1>Inscription</h1>
 
 <form action="#" method="POST" id="formInscription">
@@ -13,6 +18,7 @@
 	<label>
 		<span>E-mail</span>:
 		<input type="text" name="mail"  value="<?php echo isset($_POST['mail']) ? $_POST['mail'] : ''; ?>" required/>
+		<?php echo isset($error_mail) && $error_mail == "error" ? "<img src='img/icones/error.png' width='25px' />" : "" ?>
 	</label>
 	<label>
 		<span>Mot de passe</span>:
@@ -42,11 +48,8 @@
 	</label>
 	<label>
 		<span>Recopier le captcha</span>:
-		<input type="text" name="captcha" required /><?php echo isset($error_captcha) ? "<img src='img/icones/error.png' width='25px' />" : "" ?>
-	</label>
-	<label>
-		<input type="checkbox" name="myCheckbox" value="ok" />
-		<span> Voulez-vous utiliser l'adresse ci-dessus comme domicile.</span>
+		<input type="text" name="captcha" required />
+		<?php echo isset($error_captcha) ? "<img src='img/icones/error.png' width='25px' />" : "" ?>
 	</label>
 	<input type="submit" name="btnInscription" value="Enregistrer">
 </form>
