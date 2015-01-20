@@ -38,6 +38,19 @@ class Category {
 		return $this->type_moteur;
 	}	
 
+	public function modifierVehicule($marque,$modele,$conso,$typeMoteur){
+		if(!$this->hydrated) $this->hydrate();
+		
+		$sth = $bdd->("UPDATE `tma`.`vehicule` SET `marque` = :marque, `modele` = :modele, `consommation` = :consommation, `type_moteur` = :type_moteur WHERE `vehicule`.`id` = :id");
+		$sth->execute(array(
+			":marque" => $marque,
+			":modele" => $modele,
+			":consommation" => $conso,
+			":type_moteur" => $typeMoteur,
+			":id" => $this->id,
+		));
+	}	
+	
 	public function hydrate(){
 		$query = "SELECT * FROM vehicule WHERE id = :id";
 
@@ -52,5 +65,7 @@ class Category {
 		$this->modele = $reponse["modele"];
 		$this->consommation = $reponse["consommation"];
 		$this->type_moteur = $reponse["type_moteur"];
+	
+		$this->hydrate = true;
 	}
 }
