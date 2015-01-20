@@ -12,39 +12,42 @@
       <div class="row">
         <div class="col-md-4" style="padding-top: 0;padding-bottom: 0;background-color: #FFF;border: 0;">
           <div class="row">
-            <div class="col-md-12">
-              <form action="" method="get" name="direction" id="direction">
-                <label>Point de départ :</label>
-                  <input id="depart" class="controls" type="text" placeholder="Départ" name="depart">
-                <label>Point d'arrivée :</label>
-                  <input id="arrivee" class="controls" type="text" placeholder="Arrivée" name="arrivee">     
-                <input type="button" value="Calculer l'itinéraire" onclick="javascript:calculate()">
-            </form>
-              <br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="col-md-12">ITINERAIRE
+              <label><span>Départ :</span><input id="StartAddress" type="text" /></label>
+              <ul id="autoComplete1">
+              </ul>
+              <label><span>Destination :</span><input id="EndAddress" type="text" /></label>
+              <ul id="autoComplete2">
+              </ul>
+              <label><span>Carburant :</span><select id="Carb"><option value="">Default</option><option value="">Essence</option><option value="">Diesel</option></select></label>
+              <label>Transport :<select id="Trans"><option value="default">Default</option><option value="0">Voiture</option><option value="1">Break</option><option value="2">Camion</option></select></label>
+              <input id="btnGeocode" type="button" value="Lancer" />
+              <input id="btnAddToFavoris" type="button" value="Ajouter aux favoris" />
+          </div>
+          <div class="row">
+            <div class="col-md-12">HISTORIQUE
+             <ul id="autoComplete3">
+            </ul>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">TOOLS BOX #2
-              <br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="col-md-12">SUIVI CONSO.
+            <ul id="autoComplete4">
+            </ul>
             </div>
           </div>
-           <div class="row">
-            <div class="col-md-12">TOOLS BOX #3
-              <br><br><br><br><br><br><br><br><br><br><br><br>
-            </div>
-          </div>
-           <div class="row">
-            <div class="col-md-12">TOOLS BOX #4
-              <br><br><br><br><br><br><br><br><br><br><br><br>
+          <div class="row">
+            <div class="col-md-12">FAVORIS
+             <ul id="autoComplete5">
+            </ul>
             </div>
           </div>
         </div>
          <div class="col-md-1" style="padding-top: 15px;padding-bottom: 15px;background-color: #FFF;border: 0;">
         </div>
         <div class="col-md-7">
-           <div id="map-canvas" data-role="page"></div>
-        </div>
-      </div>
+         </div>
+    </div>
     </div> <!-- /container -->
 
 
