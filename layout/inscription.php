@@ -1,55 +1,52 @@
+<?php captcha(); ?>
 <h1>Inscription</h1>
 
 <form action="#" method="POST" id="formInscription">
 	<label>
 		<span>Nom</span>:
-		<input type="text" name="nom" />
+		<input type="text" name="nom" value="<?php echo isset($_POST['nom']) ? $_POST['nom'] : ''; ?>" required/>
 	</label>
 	<label>
 		<span>Prenom</span>:
-		<input type="text" name="prenom" />
+		<input type="text" name="prenom"  value="<?php echo isset($_POST['prenom']) ? $_POST['prenom'] : ''; ?>" required/>
 	</label>
 	<label>
 		<span>E-mail</span>:
-		<input type="text" name="mail" />
+		<input type="text" name="mail"  value="<?php echo isset($_POST['mail']) ? $_POST['mail'] : ''; ?>" required/>
 	</label>
 	<label>
 		<span>Mot de passe</span>:
-		<input type="password" name="mdp" />
+		<input type="password" name="mdp"  value="<?php echo isset($_POST['mdp']) ? $_POST['mdp'] : ''; ?>" required/>
 	</label>
 	<label>
 		<span>Adresse</span>:
-		<input type="text" name="adresse" />
+		<input type="text" name="adresse"  value="<?php echo isset($_POST['adresse']) ? $_POST['adresse'] : ''; ?>" required/>
 	</label>
 	<label>
 		<span>Code Postal</span>:
-		<input type="text" name="cp" />
+		<input type="text" name="cp"  value="<?php echo isset($_POST['cp']) ? $_POST['cp'] : ''; ?>" required/>
 	</label>
 	<label>
 		<span>Ville</span>:
-		<input type="text" name="ville" />
+		<input type="text" name="ville"  value="<?php echo isset($_POST['ville']) ? $_POST['ville'] : ''; ?>" required/>
 	</label>
 	<label>
 		<span>Moyen de transport</span>:
 		<select name="mdt">
-			<option value="1">voiture</option>
+			<option value="1" <?php echo isset($_POST['mdt']) && $_POST['mdt'] ==1 ? "selected" : ''; ?> >voiture</option>
 		</select>
 	</label>
 	<label>
-		<input type="checkbox" />
+		<span>Captcha</span>:
+		<span class='captcha'><?php echo $_SESSION['captcha']; ?></span>
+	</label>
+	<label>
+		<span>Recopier le captcha</span>:
+		<input type="text" name="captcha" required /><?php echo isset($error_captcha) ? "<img src='img/icones/error.png' width='25px' />" : "" ?>
+	</label>
+	<label>
+		<input type="checkbox" name="myCheckbox" value="ok" />
 		<span> Voulez-vous utiliser l'adresse ci-dessus comme domicile.</span>
 	</label>
 	<input type="submit" name="btnInscription" value="Enregistrer">
 </form>
-
-<style type="text/css">
-	form > label
-	{
-		display: block;
-	}
-	form > label > span:first-child
-	{
-		display: inline-block;
-		width: 200px;
-	}
-</style>

@@ -38,3 +38,7 @@
 	<!-- insertion des fonts css de google -->
 </head>
 <body>
+    <?php 
+        session_start();
+        require_once('script/functions.php'); 
+    ?>
