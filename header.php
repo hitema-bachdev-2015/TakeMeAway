@@ -38,6 +38,5 @@
         require_once('script/bdd.php'); 
         require_once('script/functions.php'); 
         require_once('classes/Tools.php');
-        require_once('classes/Utilisateur.php');
         // require_once('classes/Vehicule.php');
     ?>
