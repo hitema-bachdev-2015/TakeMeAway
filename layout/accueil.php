@@ -8,10 +8,10 @@
       <div class="row">
         <div class="col-md-12">
         	<h4>Localiser une adresse</h4>
-        	<form method="get" id="search">
+          <div id="search">
 	            <input id="barreDeRecherche" type="text" />
 	            <ul id="autoCompleteBdr"></ul>
-	        </form>
+            </div>
         </div>
 		</div>
 
