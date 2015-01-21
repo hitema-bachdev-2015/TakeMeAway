@@ -1,10 +1,3 @@
-
-
- 
-      <?php  
-   require_once("header.php"); 
-?>
-
       <h2>Connexion au site</h2>
    
 <!--       <form action="inscription.php" method="post">
@@ -40,7 +33,7 @@
       var mdp = $("#mdp").val();
 
                $.ajax({
-                  url: 'script/connexion.php',
+                  url: 'ajax/connexion.php',
                   type: "POST",
                   data: {login : login,mdp : mdp}, 
               
