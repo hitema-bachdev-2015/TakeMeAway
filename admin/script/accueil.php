@@ -1,4 +1,4 @@
 <?php 
 	$profil = Tools::infoUser($_SESSION['user']['id']);
-	var_dump($profil);
+	$listeVehicule = Tools::listeVehicule($_SESSION['user']['id']);
 ?>
