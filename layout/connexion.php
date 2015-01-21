@@ -9,7 +9,7 @@
 $(document).ready(function( event ) {
 
       $("#mdpf").on('click', function(event){
-            event.preventDefault()
+            event.preventDefault();
 
             $("#mdp").hide();
             $("#lfp").hide();
@@ -42,7 +42,7 @@ $(document).ready(function( event ) {
             </tr>
             
          </table>
-                  <input type="submit" name="connexion" value="Mot de passe oublié" id="mdpf"/>
+                  <input type="button" name="connexion" value="Mot de passe oublié" id="mdpf"/>
 
          <input type="submit" name="connexion" id="btnConnect" value="Se connecter"/>
       </form>
