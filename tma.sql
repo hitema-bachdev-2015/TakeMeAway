@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 21 Janvier 2015 à 11:11
+-- Généré le :  Mer 21 Janvier 2015 à 13:44
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `historique` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_utilisateur` int(11) NOT NULL,
-  `date` timestamp NOT NULL,
+  `date_h` timestamp NOT NULL,
   `adresse_depart` varchar(255) NOT NULL,
-  `Latitude_depart` varchar(30) NOT NULL,
+  `latitude_depart` varchar(30) NOT NULL,
   `longitude_depart` varchar(30) NOT NULL,
   `adresse_arrive` varchar(255) NOT NULL,
   `latitude_arrive` varchar(30) NOT NULL,

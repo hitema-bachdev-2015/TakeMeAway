@@ -3,9 +3,9 @@
 
 	// Page à appeler
 	$page = explode('/', $_SERVER['REQUEST_URI']);
+	//var_dump(end($page));
 
-
-	if(empty(end($page))) {
+	if(end($page)== "" ) {
 		$page ="accueil.php";
 	}else{
 		$page = end($page);
