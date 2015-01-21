@@ -4,11 +4,14 @@
         <h1>TakeMeAway!</h1>
       </div>
 
-      <h3>Rechercher une adresse:</h3>
+      
       <div class="row">
         <div class="col-md-12">
-            <label><span>Recherche :</span><input id="barreDeRecherche" type="text" /></label>
-            <ul id="autoCompleteBdr"></ul>
+        	<h4>Localiser une adresse</h4>
+        	<form method="get" id="search">
+	            <input id="barreDeRecherche" type="text" />
+	            <ul id="autoCompleteBdr"></ul>
+	        </form>
         </div>
 		</div>
 
