@@ -5,22 +5,6 @@
    require_once("header.php"); 
 ?>
 
-<script type="text/javascript">
-$(document).ready(function( event ) {
-
-      $("#mdpf").on('click', function(event){
-            event.preventDefault();
-
-            $("#mdp").hide();
-            $("#lfp").hide();
-            $("#mdpf").val("Envoyer nouveau MDP par mail");
-            $("#btnConnect").hide();
-         });
-
-});
-     
-      
-</script>
       <h2>Connexion au site</h2>
    
       <form action="connexion.php" method="post">
@@ -29,7 +13,7 @@ $(document).ready(function( event ) {
             
             <tr>
                
-               <td><label for="login"><strong>Adresse Email</strong></label></td>
+               <td><label for="login"><strong>Email</strong></label></td>
                <td><input type="text" name="login" id="login" value"<?php echo isset($_POST['mail']) ? $_POST['mail'] : ''; ?>" /></td>
                
             </tr>
@@ -46,4 +30,15 @@ $(document).ready(function( event ) {
 
          <input type="submit" name="connexion" id="btnConnect" value="Se connecter"/>
       </form>
+<script type="text/javascript">
+
+         $("#mdpf").on('click', function(){
+console.log($(this));
+               $(this).hide();
+               $("#lfp").hide();
+               $("#btnConnect").val("Envoyer nouveau MDP par mail");
+               $("#mdp").hide();
+            });
+      
+</script>
  
