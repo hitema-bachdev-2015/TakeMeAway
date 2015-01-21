@@ -55,6 +55,15 @@ hr {
 
 }
 
+div h4{
+    text-align: center;
+    margin-top: -10px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
 label {
   display: block;
   width: 100px;

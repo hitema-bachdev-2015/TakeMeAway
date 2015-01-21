@@ -31,6 +31,7 @@
     <link href="css/grid.css" rel="stylesheet">
 
 	<!-- insertion des fonts css de google -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <?php 

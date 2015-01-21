@@ -8,15 +8,14 @@
       <div class="row">
         <div class="col-md-12">
             <label><span>Recherche :</span><input id="barreDeRecherche" type="text" /></label>
-              <ul id="autoCompleteBdr">
-            </ul>
+            <ul id="autoCompleteBdr"></ul>
         </div>
-      </div>
+		</div>
 
       <div class="row">
         <div class="col-md-4" style="padding-top: 0;padding-bottom: 0;background-color: rgba(0, 0, 0, 0);border: 0;">
           <div class="row">
-            <div class="col-md-12 box"><h4><span>ITINERAIRE</span></h4>
+            <div class="col-md-12"><h4><span>ITINERAIRE</span></h4>
               <label for="StartAddress"><span>Départ :</span></label><input id="StartAddress" type="text" />
               <ul id="autoComplete1">
               </ul>
@@ -31,20 +30,20 @@
           </div>
         </div>
         <div class="row">
-           <div class="col-md-12">HISTORIQUE
+           <div class="col-md-12"><h4><span>HISTORIQUE</span></h4>
              <ul id="autoComplete3">
             </ul>
             </div>
           </div>  
           
           <div class="row">
-            <div class="col-md-12">SUIVI CONSO.
+            <div class="col-md-12"><h4><span>SUIVI CONSO.</span></h4>
             <ul id="autoComplete4">
             </ul>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">FAVORIS
+            <div class="col-md-12"><h4><span>FAVORIS</span></h4>
              <ul id="autoComplete5">
             </ul>
             </div>
