@@ -6,7 +6,11 @@
 
       <h3>Rechercher une adresse:</h3>
       <div class="row">
-        <div class="col-md-12">(barre de recherche)</div>
+        <div class="col-md-12">
+            <label><span>Recherche :</span><input id="barreDeRecherche" type="text" /></label>
+              <ul id="autoCompleteBdr">
+            </ul>
+        </div>
       </div>
 
       <div class="row">
