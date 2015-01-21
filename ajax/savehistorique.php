@@ -18,7 +18,7 @@
 		$id=$tool -> insertHisto($adresse_dep, $adresse_arr, $longitude_dep, $longitude_arr, $latitude_dep, $latitude_arr, $_SESSION['user']['id'], $id_vehicule);
 	}
 
-	$_SESSION['user']['id_historique']$id;
+	$_SESSION['user']['id_historique']=$id;
 	
 
 	// $adresse_depart = array('adresse_complete' => $adresse_dep , 'longitude' => $longitude_dep , 'latitude' => $latitude_de);
