@@ -82,6 +82,8 @@ class Tools {
                               "longitude_arr" => $longitude_arr, 
                               "id_vehic" => $id_vehic
                         ));
+        $last_id = $bdd->lastInsertId();
+        return $last_id;
        // $reponse = $query->Fetch();
         // retourner une valeur en cas d'echec
     }
