@@ -16,15 +16,16 @@
       <div class="row">
         <div class="col-md-4" style="padding-top: 0;padding-bottom: 0;background-color: rgba(0, 0, 0, 0);border: 0;">
           <div class="row">
-            <div class="col-md-12">ITINERAIRE
-              <label><span>Départ :</span><input id="StartAddress" type="text" /></label>
+            <div class="col-md-12 box"><h4><span>ITINERAIRE</span></h4>
+              <label for="StartAddress"><span>Départ :</span></label><input id="StartAddress" type="text" />
               <ul id="autoComplete1">
               </ul>
-              <label><span>Destination :</span><input id="EndAddress" type="text" /></label>
+              <label for="EnAddress"><span>Destination :</span></label><input id="EndAddress" type="text" />
               <ul id="autoComplete2">
               </ul>
-              <label><span>Carburant :</span><select id="Carb"><option value="">Default</option><option value="">Essence</option><option value="">Diesel</option></select></label>
-              <label>Transport :<select id="Trans"><option value="default">Default</option><option value="0">Voiture</option><option value="1">Break</option><option value="2">Camion</option></select></label>
+              <label for="Carb"><span>Carburant :</span></label><select id="Carb"><option value="">Default</option><option value="">Essence</option><option value="">Diesel</option></select>
+              <label for="Trans"><span>Transport :</span></label><select id="Trans"><option value="default">Default</option><option value="0">Voiture</option><option value="1">Break</option><option value="2">Camion</option></select>
+              <br><br>
               <input id="btnGeocode" type="button" value="Lancer" class="btn-style" />
               <input id="btnAddToFavoris" type="button" value="Ajouter aux favoris" class="btn-style" />
           </div>
