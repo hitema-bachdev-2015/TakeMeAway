@@ -17,12 +17,22 @@ class Tools {
     }
     
     // Insertion d'une nouvelle utilisateur
-	public static function checkUser($mail){
-		global $bdd;
+    public static function checkUser($mail){
+        global $bdd;
         $sql = "SELECT * FROM utilisateur WHERE email=:mail ";
         $query = $bdd->prepare($sql);
         $query->execute(array("mail" => $mail));
         $reponse = $query->FetchAll();
         return count($reponse);
+    }
+    
+    // Insertion d'une nouvelle utilisateur
+    public static function infoUser($id){
+        global $bdd;
+        $sql = "SELECT * FROM utilisateur WHERE id=:id ";
+        $query = $bdd->prepare($sql);
+        $query->execute(array("id" => $id));
+        $reponse = $query->Fetch();
+        return $reponse;
     }
 }

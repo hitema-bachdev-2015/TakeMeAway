@@ -3,12 +3,14 @@
 
 	// Page à appeler
 	$page = explode('/', $_SERVER['REQUEST_URI']);
-	if(empty($page[3])) {
+	//var_dump(end($page));
+
+	if(end($page)== "" ) {
 		$page ="accueil.php";
 	}else{
-		$page = $page[3];
+		$page = end($page);
 	}
-	
+
 	include("script/".$page);
 	include("layout/".$page);
 

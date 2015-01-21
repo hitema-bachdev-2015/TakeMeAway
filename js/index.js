@@ -1,5 +1,6 @@
 // Mes variables
 var urlApi, key;
+var map;
 //Initialisation de l'api google map
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
@@ -16,9 +17,13 @@ $(document).ready(function(){
 	var autoCompleteUL2=$("#autoComplete2");
 	var latDepart, latArrivee, longDepart, longArrivee;
 	var distance, temps, addDepart, addArrivee;
+
+	var barreDeRecherche=$("#barreDeRecherche");
+	var autoCompleteBdr=$("#autoCompleteBdr");
+
 	
 	//Action se déroulant lors du remplissage de l'input de Départ
-	adressInput1.on("keypress", function(e){
+	adressInput1.on("keyup", function(e){
 		$.ajax({
 			url: urlApi+"/json?address="+adressInput1.val()+"&key="+key
 		}).done(function(result){
@@ -41,7 +46,7 @@ $(document).ready(function(){
 		});
 	});
 	//Action se déroulant lors du remplissage de l'input de Destinantion
-	adressInput2.on("keypress", function(e){
+	adressInput2.on("keyup", function(e){
 		$.ajax({
 			url: urlApi+"/json?address="+adressInput2.val()+"&key="+key
 		}).done(function(result){
@@ -52,6 +57,31 @@ $(document).ready(function(){
 				var lat=result.results[i].geometry.location.lat;;
 				var longit=result.results[i].geometry.location.lng;
 				autoCompleteUL2.append("<li data-lat='"+lat+"\' data-long='"+longit+"'>"+adress+"</li>");
+			
+			}
+			//console.log(result);	
+		}).fail(function(result){
+			//console.log("ERREUR");
+		}).always(function(){
+			//console.log("Fin du chargement !");
+			/*setTimeout(function(){
+				$("#loader").hide();
+			}, 500);*/
+		});
+	});
+
+	//Action pour la barre de recherche centrale
+	barreDeRecherche.on("keyup", function(e){
+		$.ajax({
+			url: urlApi+"/json?address="+barreDeRecherche.val()+"&key="+key
+		}).done(function(result){
+			autoCompleteBdr.empty();
+			for(var i in result.results)
+			{
+				var adress=result.results[i].formatted_address;
+				var lat=result.results[i].geometry.location.lat;;
+				var longit=result.results[i].geometry.location.lng;
+				autoCompleteBdr.append("<li data-lat='"+lat+"\' data-long='"+longit+"'>"+adress+"</li>");
 			
 			}
 			//console.log(result);	
@@ -79,6 +109,25 @@ $(document).ready(function(){
 		adressInput2.val($(this).text());
 		latArrivee=$(this).attr('data-lat'); 
 		longArrivee=$(this).attr('data-long');
+	});
+
+	//onclick pour la barre de recherche
+	$(document).on("click", "#autoCompleteBdr li", function(e){
+		e.preventDefault();
+		$("#autoCompleteBdr").empty();
+		barreDeRecherche.val($(this).text());
+		latitude=$(this).attr('data-lat'); 
+		longitude=$(this).attr('data-long');
+
+		var pos = new google.maps.LatLng(latitude, longitude);
+		map.setCenter(pos);
+		map.setZoom(10);
+
+   		var marker = new google.maps.Marker({
+      		position: pos,
+      		map: map
+  		});
+
 	});
 	
 	//Action sur le click du bouton Lancer
@@ -144,3 +193,4 @@ function drawItin(depart, arrivee){
   });
 }
 
+google.maps.event.addDomListener(window, 'load', initialize);

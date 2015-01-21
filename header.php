@@ -31,6 +31,7 @@
     <link href="css/grid.css" rel="stylesheet">
 
 	<!-- insertion des fonts css de google -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <?php 
@@ -38,6 +39,5 @@
         require_once('script/bdd.php'); 
         require_once('script/functions.php'); 
         require_once('classes/Tools.php');
-        require_once('classes/Utilisateur.php');
         // require_once('classes/Vehicule.php');
     ?>
