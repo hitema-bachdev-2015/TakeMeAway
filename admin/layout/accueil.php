@@ -31,6 +31,20 @@
         </label>
         <input type="submit" name="btnModifProfil" value="Modifier">
       </form>
+      <ul>
+          <li class='titleForm'>
+            <span>Marque</span><span>Modele</span><span>Moteur</span>
+          </li>
+        <?php 
+          for ($i=0; $i < count($listeVehicule) ; $i++) { 
+              echo  "
+                      <li>
+                      <span>".$listeVehicule[$i]['marque']."</span><span>".$listeVehicule[$i]['modele']."</span><span>".$listeVehicule[$i]['type_moteur']."</span>
+                      </li>
+                    ";
+          }
+        ?>
+      </ul>
   </div>
   <div id="monVehicule">
     <select>
