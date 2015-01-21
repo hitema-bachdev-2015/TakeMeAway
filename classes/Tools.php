@@ -35,4 +35,13 @@ class Tools {
         $reponse = $query->Fetch();
         return $reponse;
     }
+
+    public static function connectUser($mail,$password){
+        global $bdd;
+        $sql = "SELECT id FROM utilisateur WHERE email=:mail AND mdp=:password";
+        $query = $bdd->prepare($sql);
+        $query->execute(array("email" => $mail, "mdp" => $password));
+        $reponse = $query->Fetch();
+        return $reponse;
+    }
 }

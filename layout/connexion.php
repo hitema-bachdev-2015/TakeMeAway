@@ -7,28 +7,22 @@
 
       <h2>Connexion au site</h2>
    
-      <form action="connexion.php" method="post">
+<!--       <form action="inscription.php" method="post">
+ -->         
          
-         <table>
-            
-            <tr>
+               <label>
+             <span>E-mail :</span>
+               <input type="mail" name="login" id="login" value"<?php echo isset($_POST['mail']) ? $_POST['mail'] : ''; ?>" />
+               </label>
                
-               <td><label for="login"><strong>Email</strong></label></td>
-               <td><input type="text" name="login" id="login" value"<?php echo isset($_POST['mail']) ? $_POST['mail'] : ''; ?>" /></td>
-               
-            </tr>
-            
-            <tr>
-               
-               <td><label for="pass" id="lfp"><strong>Mot de passe</strong></label></td>
-               <td><input type="password" name="mdp" id="mdp" value="<?php echo isset($_POST['mail']) ? $_POST['mail'] : ''; ?>" /></td>
-               
-            </tr>
-            
-         </table>
+              <label id="lfp">
+               <span>Mot de passe :</span>
+               <input type="password" name="mdp" id="mdp" value="<?php echo isset($_POST['mdp']) ? $_POST['mdp'] : ''; ?>" />
+               </label>
+         
                   <input type="button" name="connexion" value="Mot de passe oublié" id="mdpf"/>
 
-         <input type="submit" name="connexion" id="btnConnect" value="Se connecter"/>
+         <input type="button" name="connexion" id="btnConnect" value="Se connecter"/>
       </form>
 <script type="text/javascript">
 
@@ -37,7 +31,25 @@
                $("#lfp").hide();
                $("#btnConnect").val("Envoyer nouveau MDP par mail");
                $("#mdp").hide();
+
+
             });
+
+   $("#btnConnect").on('click', function(){
+      var login = $("#login").val();
+      var mdp = $("#mdp").val();
+
+               $.ajax({
+                  url: 'script/connexion.php',
+                  type: "POST",
+                  data: {login : login,mdp : mdp}, 
+              
+      success: function(data){
+               console.log(data);
+               }
+
+               });
+});
       
 </script>
  
