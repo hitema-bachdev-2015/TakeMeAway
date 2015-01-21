@@ -134,19 +134,64 @@ $(document).ready(function(){
 	buttonGeo.on("click", function(){
 		var dep={lat:parseFloat(latDepart) , longit:parseFloat(longDepart) , nom:adressInput1.val()};
 		var arr={lat:parseFloat(latArrivee) , longit:parseFloat(longArrivee) , nom:adressInput2.val() };
-		//console.log(dep);
+		var idvehic=$('select#Trans option:selected').val();
+		var that=this;
+		//console.log(idvehic);
 		drawItin(dep, arr);
-		//Remplissage de l'historique
-		$("#autoComplete3").append("<li data-latDep='"+dep.lat+"\' data-longDep='"+dep.longit+"\' data-latArr='"+arr.lat+"\' data-longArr='"+arr.longit+"'>"+dep.nom+" - "+arr.nom+"</li>");
 		//Requête ajax pour enregistrer l'historique mis à jour dans la base de données
+		$.ajax({
+			url: "./ajax/savehistorique.php",
+			type : 'POST',
+			data: {
+
+					DEP: dep.nom,
+					ARR: arr.nom,
+					LONGDEP: dep.longit,
+					LATDEP: dep.lat,
+					LONGARR: arr.longit,
+					LATARR: arr.lat,
+					IDVEHIC: idvehic
+
+			},
+			beforeSend: function(){
+				//Ajout du bouton favoris s'il n'existe pas
+				if($(that).next().attr("id") != 'btnAddToFavoris')
+				{
+					$('#btnGeocode').after('<input id="btnAddToFavoris" type="button" value="Ajouter aux favoris" class="btn-style" />');
+				}
+			},
+			async : true
+		}).done(function(result){
+			//console.log(result);
+			if(parseInt(result) != 0)
+			{
+				//Remplissage de l'historique
+				$("#autoComplete3").append("<li data-latDep='"+dep.lat+"\' data-longDep='"+dep.longit+"\' data-latArr='"+arr.lat+"\' data-longArr='"+arr.longit+"'>"+dep.nom+" - "+arr.nom+"</li>");
+			}
+		});
 	});
 	//Action sur le click du bouton Ajouter aux favoris
-	btnAddFav.on("click", function(){
-		//Remplissage des favoris
-		$("#autoComplete5").append("<li data-latDep='' data-longDep='' data-latArr='' data-longArr=''>"+adressInput1.val()+" - "+adressInput2.val()+"</li>");	
+	$(document).on("click", "#btnAddToFavoris", function(){
 		//Requête ajax pour enregistrer les favoris mis à jour dans la base de données
+		$.ajax({
+			url:"./ajax/savefavoris.php",
+			type : 'POST',
+			/*data: {
+					/*CONTENT:Content_Task,
+					CATEGORY:Category_Task,
+					DATE:Date_Picker,
+					END_TYPE_TASK:End_Type_Task
+			},*/
+			beforeSend: function(){
+				//Suppression du bouton favoris
+				$('#btnAddToFavoris').remove();
+			},
+			async : true
+		}).done(function(result){
+			//Remplissage des favoris
+			$("#autoComplete5").append("<li data-latDep='' data-longDep='' data-latArr='' data-longArr=''>"+adressInput1.val()+" - "+adressInput2.val()+"</li>");
+		});
 	});
-
 });
 //Fonction d'initialisation de la map lors du rafraîchissement de la page
 function initialize() {
@@ -192,5 +237,3 @@ function drawItin(depart, arrivee){
     }
   });
 }
-
-google.maps.event.addDomListener(window, 'load', initialize);
