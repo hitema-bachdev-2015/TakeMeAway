@@ -45,6 +45,16 @@ class Tools {
         return $reponse;
   
     }
+    
+    // Insertion d'une nouvelle utilisateur
+    public static function listeVehicule($id){
+        global $bdd;
+        $sql = "SELECT * FROM vehicule WHERE id_utilisateur=:id ";
+        $query = $bdd->prepare($sql);
+        $query->execute(array("id" => $id));
+        $reponse = $query->FetchAll();
+        return $reponse;
+    }
 
   // //Verification de la présence d'un véhicule pour un utilisateur donné
     // public static function hasVehic($id){
