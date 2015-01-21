@@ -33,7 +33,6 @@
 <script type="text/javascript">
 
          $("#mdpf").on('click', function(){
-console.log($(this));
                $(this).hide();
                $("#lfp").hide();
                $("#btnConnect").val("Envoyer nouveau MDP par mail");
