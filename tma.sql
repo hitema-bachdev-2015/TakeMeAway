@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `historique` (
 -- Contenu de la table `historique`
 --
 
-INSERT INTO `historique` (`id`, `id_utilisateur`, `date`, `adresse_depart`, `Latitude_depart`, `longitude_depart`, `adresse_arrive`, `latitude_arrive`, `longitude_arrive`, `id_vehicule`, `favori`) VALUES
+INSERT INTO `historique` (`id`, `id_utilisateur`, `date_h`, `adresse_depart`, `latitude_depart`, `longitude_depart`, `adresse_arrive`, `latitude_arrive`, `longitude_arrive`, `id_vehicule`, `favori`) VALUES
 (1, 1, '2015-01-19 21:43:48', 'rue de Saint Prix', '81', '95320', 'Rue Chateaudun', '27', '75009', 1, 0);
 
 -- --------------------------------------------------------
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `vehicule` (
 
 INSERT INTO `vehicule` (`id`, `id_utilisateur`, `marque`, `modele`, `consommation`, `type_moteur`, `type_vehicule`) VALUES
 (1, 1, 'Audi', 'TT', 10, 1, 1),
-(2, 1, 'Peugeot', '106', 10, 1, 1);
+(2, 1, 'Peugeot', '207', 10, 0, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
