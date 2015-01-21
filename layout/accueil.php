@@ -29,7 +29,7 @@
               <label for="Trans"><span>Transport :</span></label><select id="Trans"><option value="default">Default</option><option value="0">Voiture</option><option value="1">Break</option><option value="2">Camion</option></select>
               <br><br>
               <input id="btnGeocode" type="button" value="Lancer" class="btn-style" />
-              <input id="btnAddToFavoris" type="button" value="Ajouter aux favoris" class="btn-style" />
+              <!--<input id="btnAddToFavoris" type="button" value="Ajouter aux favoris" class="btn-style" />-->
           </div>
         </div>
         <div class="row">
