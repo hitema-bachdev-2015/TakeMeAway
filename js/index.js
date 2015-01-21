@@ -23,7 +23,7 @@ $(document).ready(function(){
 
 	
 	//Action se déroulant lors du remplissage de l'input de Départ
-	adressInput1.on("keypress", function(e){
+	adressInput1.on("keyup", function(e){
 		$.ajax({
 			url: urlApi+"/json?address="+adressInput1.val()+"&key="+key
 		}).done(function(result){
@@ -46,7 +46,7 @@ $(document).ready(function(){
 		});
 	});
 	//Action se déroulant lors du remplissage de l'input de Destinantion
-	adressInput2.on("keypress", function(e){
+	adressInput2.on("keyup", function(e){
 		$.ajax({
 			url: urlApi+"/json?address="+adressInput2.val()+"&key="+key
 		}).done(function(result){
@@ -71,7 +71,7 @@ $(document).ready(function(){
 	});
 
 	//Action pour la barre de recherche centrale
-	barreDeRecherche.on("keypress", function(e){
+	barreDeRecherche.on("keyup", function(e){
 		$.ajax({
 			url: urlApi+"/json?address="+barreDeRecherche.val()+"&key="+key
 		}).done(function(result){

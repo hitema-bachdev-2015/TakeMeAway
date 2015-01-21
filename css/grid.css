@@ -72,8 +72,8 @@ div h4{
     background: url(../img/search-white.png) no-repeat 10px 6px #fcfcfc;
     border: 1px solid #d1d1d1;
     font: bold 12px Arial,Helvetica,Sans-serif;
-    color: #bebebe;
-    width: 150px;
+    color: #000;
+    width: 250px;
     padding: 6px 15px 6px 35px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
