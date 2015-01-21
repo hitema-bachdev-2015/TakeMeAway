@@ -1,5 +1,5 @@
 <?php 
-	require_once('c:\xampp\htdocs\TakeMeAway\classes/header.php');
+	require_once('..\classes\header.php');
 	$login = $_POST['login'];
 	$mdp = $_POST['mdp'] ;
 	$tls = Tools::connectUser($login,$mdp);
