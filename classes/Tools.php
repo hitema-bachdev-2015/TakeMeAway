@@ -76,4 +76,13 @@ class Tools {
         $last_id = $bdd->lastInsertId();
         return $last_id;
     }
+
+    //Mise à jour de la table historique, pour ajout de favoris
+    public static function updateFav($id_hist){
+        global $bdd;
+        $sql = "UPDATE historique SET favori = 1 WHERE id=:id_historique";
+        $query = $bdd->prepare($sql);
+        $query->execute(array("id_historique" => $id_hist));
+    }
+
 }

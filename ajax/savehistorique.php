@@ -1,7 +1,7 @@
 <?php
 	include("../script/bdd.php");
 	include("../classes/Tools.php");
-
+	session_start();
 	$_SESSION['user']['id'] = 1;
 	$adresse_dep = "1 rue de la liberte";
 	$adresse_arr = "2 rue de la liberte";
