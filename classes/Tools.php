@@ -3,14 +3,17 @@
 class Tools {
     
     // Insertion d'une nouvelle utilisateur
-	public static function addUser($nom, $prenom, $email, $mdp, $token){
+	public static function addUser($nom, $prenom, $email, $mdp, $cp, $adresse, $ville, $token){
 		global $bdd;
-		$req=$bdd->prepare("INSERT INTO utilisateur (nom, prenom, email, mdp, token, date_subscrib) VALUES (:nom, :prenom, :email, :mdp, :token, :date_subscrib)");
+		$req=$bdd->prepare("INSERT INTO utilisateur (nom, prenom, email, mdp, cp, adresse, ville, token, date_subscrib) VALUES (:nom, :prenom, :email, :mdp, :cp, :adresse, :ville, :token, :date_subscrib)");
 		$req->execute(array(
             "nom"				=>	$nom,
             "prenom"			=>	$prenom,
             "email"				=>	$email,
-            "mdp"				=>	$mdp,
+            "mdp"               =>  $mdp,
+            "cp"                =>  $cp,
+            "ville"             =>  $ville,
+            "adresse"           =>  $adresse,
             "token"				=> 	$token,
             "date_subscrib" 	=> 	date("Y-m-d")
         ));

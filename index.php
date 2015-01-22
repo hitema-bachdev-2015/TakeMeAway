@@ -5,7 +5,7 @@
 	$page = explode('/', $_SERVER['REQUEST_URI']);
 	//var_dump(end($page));
 
-	if(end($page)== "" ) {
+	if(end($page)== "" || end($page)== "index.php") {
 		$page ="accueil.php";
 	}else{
 		$page = end($page);
