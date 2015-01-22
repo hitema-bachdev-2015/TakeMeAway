@@ -2,13 +2,15 @@
 	$x = explode('/',$_SERVER['REDIRECT_URL']);
 	$url= 'http://127.0.0.1';
 	for ($i=0; $i < count($x)-1 ; $i++) { 
-		$url = $url.'/'.$x[$i];
-		// var_dump($x[$i]);
+		if($i>0){
+			$url = $url.'/'.$x[$i];
+		}else{
+			$url = $url.''.$x[$i];
+		}
 	}
 	$url = $url.'/ajax/confirmeCompete.php';
 
 	if(isset($_POST['btnInscription'])){
-		var_dump($_POST);
 		$myReponse = isValid($_POST['g-recaptcha-response']);
 		if($myReponse == true){
 			extract($_POST);
@@ -28,9 +30,9 @@
 				    $message = array(
 				        'html' => '<p>Bonjour, Votre inscription a bien été pris en compte pour le finaliser, veuillez cliquer sur le lien ci-dessous :'.$url.'</p>',
 				        'text' => 'Bonjour, Votre inscription a bien été pris en compte pour le finaliser, veuillez cliquer sur le lien ci-dessous :'.$url.'',
-				        'subject' => 'example subject',
+				        'subject' => 'Confirmation d\'inscription à TakeMeAway',
 				        'from_email' => 'navecbatchi@gmail.com', //envoit
-				        'from_name' => 'Example Name',
+				        'from_name' => 'Confirmation d\'inscription à TakeMeAway',
 				        'to' => array(
 				            array(
 				                'email' => $mail, //recoit
