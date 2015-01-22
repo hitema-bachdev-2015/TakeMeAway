@@ -85,4 +85,24 @@ class Tools {
         $query->execute(array("id_historique" => $id_hist));
     }
 
+    //Récuprération de l'historique d'un utilisateur dans la base
+    public static function recupHisto($id_user){
+        global $bdd;
+        $sql = "SELECT adresse_depart, latitude_depart, longitude_depart, adresse_arrive, latitude_arrive, longitude_arrive, id_vehicule FROM historique WHERE id_utilisateur = :id";
+        $query = $bdd->prepare($sql);
+        $query->execute(array("id" => $id_user));
+        $reponse = $query->FetchAll();
+        return $reponse;
+    }
+
+     //Récuprération des favoris d'un utilisateur dans la base
+    public static function recupFav($id_user){
+        global $bdd;
+        $sql = "SELECT adresse_depart, latitude_depart, longitude_depart, adresse_arrive, latitude_arrive, longitude_arrive, id_vehicule FROM historique WHERE id_utilisateur = :id AND favori=1";
+        $query = $bdd->prepare($sql);
+        $query->execute(array("id" => $id_user));
+        $reponse = $query->FetchAll();
+        return $reponse;
+    }
+
 }

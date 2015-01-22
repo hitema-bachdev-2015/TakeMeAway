@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Mer 21 Janvier 2015 à 13:44
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Client: localhost
+-- Généré le: Jeu 22 Janvier 2015 à 12:20
+-- Version du serveur: 5.5.24-log
+-- Version de PHP: 5.4.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `tma`
+-- Base de données: `tma`
 --
 
 -- --------------------------------------------------------
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `historique` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_utilisateur` int(11) NOT NULL,
-  `date_h` timestamp NOT NULL,
+  `date_h` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `adresse_depart` varchar(255) NOT NULL,
   `latitude_depart` varchar(30) NOT NULL,
   `longitude_depart` varchar(30) NOT NULL,
@@ -39,14 +39,7 @@ CREATE TABLE IF NOT EXISTS `historique` (
   `id_vehicule` int(11) NOT NULL,
   `favori` smallint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Contenu de la table `historique`
---
-
-INSERT INTO `historique` (`id`, `id_utilisateur`, `date_h`, `adresse_depart`, `latitude_depart`, `longitude_depart`, `adresse_arrive`, `latitude_arrive`, `longitude_arrive`, `id_vehicule`, `favori`) VALUES
-(1, 1, '2015-01-19 21:43:48', 'rue de Saint Prix', '81', '95320', 'Rue Chateaudun', '27', '75009', 1, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -57,7 +50,7 @@ INSERT INTO `historique` (`id`, `id_utilisateur`, `date_h`, `adresse_depart`, `l
 CREATE TABLE IF NOT EXISTS `tchat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_utilisateur` int(11) NOT NULL,
-  `date_envoi` timestamp NOT NULL,
+  `date_envoi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `msg` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
@@ -86,8 +79,9 @@ CREATE TABLE IF NOT EXISTS `type_vehicule` (
 --
 
 INSERT INTO `type_vehicule` (`id`, `libelle`) VALUES
-(1, 'voiture'),
-(2, 'camion');
+(0, 'Voiture'),
+(1, 'Break'),
+(2, 'Camion');
 
 -- --------------------------------------------------------
 
@@ -140,8 +134,8 @@ CREATE TABLE IF NOT EXISTS `vehicule` (
 --
 
 INSERT INTO `vehicule` (`id`, `id_utilisateur`, `marque`, `modele`, `consommation`, `type_moteur`, `type_vehicule`) VALUES
-(1, 1, 'Audi', 'TT', 10, 1, 1),
-(2, 1, 'Peugeot', '207', 10, 0, 1);
+(1, 1, 'Audi', 'TT', 10, 0, 1),
+(2, 1, 'Peugeot', '106', 10, 1, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

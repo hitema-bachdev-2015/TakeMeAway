@@ -22,7 +22,7 @@
               if(isset($_SESSION['user']['id']))
               {
               ?>  
-                <h4><a href="deconnexion.php">Deconnexion</a></h4>
+                <h4><a href="deconnexion.php">Déconnexion</a></h4>
               <?php
               }
               else
@@ -51,7 +51,6 @@
               <label>
                 <span>Carburant </span>:
                 <select id="Carb">
-                  <option value="">Default</option>
                   <option value="">Essence</option>
                   <option value="">Diesel</option>
                 </select>
@@ -59,7 +58,6 @@
               <label>
                 <span>Transport </span>:
                 <select id="Trans">
-                  <option value="default">Default</option>
                   <option value="0">Voiture</option>
                   <option value="1">Break</option>
                   <option value="2">Camion</option>

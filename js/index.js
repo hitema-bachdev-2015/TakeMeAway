@@ -16,12 +16,54 @@ $(document).ready(function(){
 	var autoCompleteUL1=$("#autoComplete1");
 	var autoCompleteUL2=$("#autoComplete2");
 	var latDepart, latArrivee, longDepart, longArrivee;
-	var distance, temps, addDepart, addArrivee;
+	var distance, temps, addDepart, addArrivee, type_voiture;
 
 	var barreDeRecherche=$("#barreDeRecherche");
 	var autoCompleteBdr=$("#autoCompleteBdr");
-
+	//Récupération de l'historique
+	$.ajax({
+		url:"./ajax/gethistorique.php"
+	}).done(function(result){
+		var data=jQuery.parseJSON(result);
+		$("#autoComplete3").empty();
+		//Si l'historique n'est pas vide
+		if(data != "EMPTY")
+		{	
+			//console.log(data[0].adresse_depart);
+			for(var i=0; i<data.length; i++)
+			{
+				//console.log(data[i].adresse_depart);
+				//Remplissage de l'historique
+				$("#autoComplete3").append("<li data-latDep='"+data[i].latitude_depart+"\' data-longDep='"+data[i].longitude_depart+"\' data-latArr='"+data[i].latitude_arrive+"\' data-longArr='"+data[i].longitude_arrive+"'>"+data[i].adresse_depart+" - "+data[i].adresse_arrive+"</li>");
+			}		
+		}
+		else
+		{
+			$("#autoComplete3").append("<li data='default'>Pas d'historique</li>");
+		}
+	});
 	
+	//Récupération des favoris
+	$.ajax({
+		url:"./ajax/getfavoris.php"
+	}).done(function(result){
+		var data=jQuery.parseJSON(result);
+		//Si l'historique n'est pas vide
+		if(data != "EMPTY")
+		{	
+			$("#autoComplete5").empty();
+			for(var i=0; i<data.length; i++)
+			{
+				//Remplissage des favoris
+				$("#autoComplete5").append("<li data-latDep='"+data[i].latitude_depart+"\' data-longDep='"+data[i].longitude_depart+"\' data-latArr='"+data[i].latitude_arrive+"\' data-longArr='"+data[i].longitude_arrive+"'>"+data[i].adresse_depart+" - "+data[i].adresse_arrive+"</li>");
+			}
+		}
+		else
+		{
+			$("#autoComplete5").append("<li data='default'>Pas de favoris</li>");
+		}
+	});
+
 	//Action se déroulant lors du remplissage de l'input de Départ
 	adressInput1.on("keyup", function(e){
 		$.ajax({
@@ -39,10 +81,7 @@ $(document).ready(function(){
 		}).fail(function(result){
 			//console.log("ERREUR");
 		}).always(function(){
-			//console.log("Fin du chargement !");
-			/*setTimeout(function(){
-				$("#loader").hide();
-			}, 500);*/
+			
 		});
 	});
 	//Action se déroulant lors du remplissage de l'input de Destinantion
@@ -63,10 +102,7 @@ $(document).ready(function(){
 		}).fail(function(result){
 			//console.log("ERREUR");
 		}).always(function(){
-			//console.log("Fin du chargement !");
-			/*setTimeout(function(){
-				$("#loader").hide();
-			}, 500);*/
+			
 		});
 	});
 
@@ -88,10 +124,7 @@ $(document).ready(function(){
 		}).fail(function(result){
 			//console.log("ERREUR");
 		}).always(function(){
-			//console.log("Fin du chargement !");
-			/*setTimeout(function(){
-				$("#loader").hide();
-			}, 500);*/
+			
 		});
 	});
 
@@ -163,10 +196,20 @@ $(document).ready(function(){
 			async : true
 		}).done(function(result){
 			//console.log(result);
+			//Si l'historique à bien été enregistré dans la base
 			if(parseInt(result) != 0)
 			{
 				//Remplissage de l'historique
-				$("#autoComplete3").append("<li data-latDep='"+dep.lat+"\' data-longDep='"+dep.longit+"\' data-latArr='"+arr.lat+"\' data-longArr='"+arr.longit+"'>"+dep.nom+" - "+arr.nom+"</li>");
+				if($('#autoComplete3 li:first-child').attr("data") == undefined)
+				{
+					
+					$("#autoComplete3").append("<li data-latDep='"+dep.lat+"\' data-longDep='"+dep.longit+"\' data-latArr='"+arr.lat+"\' data-longArr='"+arr.longit+"'>"+dep.nom+" - "+arr.nom+"</li>");
+				}
+				else
+				{
+					$("#autoComplete3").empty();
+					$("#autoComplete3").append("<li data-latDep='"+dep.lat+"\' data-longDep='"+dep.longit+"\' data-latArr='"+arr.lat+"\' data-longArr='"+arr.longit+"'>"+dep.nom+" - "+arr.nom+"</li>");
+				}
 			}
 		});
 	});
@@ -176,12 +219,6 @@ $(document).ready(function(){
 		$.ajax({
 			url:"./ajax/savefavoris.php",
 			type : 'POST',
-			/*data: {
-					/*CONTENT:Content_Task,
-					CATEGORY:Category_Task,
-					DATE:Date_Picker,
-					END_TYPE_TASK:End_Type_Task
-			},*/
 			beforeSend: function(){
 				//Suppression du bouton favoris
 				$('#btnAddToFavoris').remove();
@@ -189,7 +226,18 @@ $(document).ready(function(){
 			async : true
 		}).done(function(result){
 			//Remplissage des favoris
-			$("#autoComplete5").append("<li data-latDep='' data-longDep='' data-latArr='' data-longArr=''>"+adressInput1.val()+" - "+adressInput2.val()+"</li>");
+			if($('#autoComplete5 li:first-child').attr("data") == undefined)
+			{
+					
+					$("#autoComplete5").append("<li data-latDep='' data-longDep='' data-latArr='' data-longArr=''>"+adressInput1.val()+" - "+adressInput2.val()+"</li>");
+			}
+			else
+			{
+					$("#autoComplete5").empty();
+					$("#autoComplete5").append("<li data-latDep='' data-longDep='' data-latArr='' data-longArr=''>"+adressInput1.val()+" - "+adressInput2.val()+"</li>");
+		
+			}
+			//Remplissage des favoris
 		});
 	});
 });
@@ -223,6 +271,8 @@ function drawItin(depart, arrivee){
   directionsService.route(request, function(response, status) {
     if(status == google.maps.DirectionsStatus.OK) {
     	//console.log(response);
+    	var vehic={id:$('select#Trans option:selected').val(),
+    				nom:$('select#Trans option:selected').text()};
       	directionsDisplay.setDirections(response);
       	distance=response.routes[0].legs[0].distance.value;
       	temps=response.routes[0].legs[0].duration.text;
@@ -234,6 +284,7 @@ function drawItin(depart, arrivee){
       	$("#autoComplete4").append("<li data-destination='"+addArrivee+"'>Destination : "+addArrivee+"</li>");
       	$("#autoComplete4").append("<li data-time='"+response.routes[0].legs[0].duration.value+"'>Temps : "+temps+"</li>");
       	$("#autoComplete4").append("<li data-distance='"+distance+"'>Distance : "+distance+" mètres</li>");
+    	$("#autoComplete4").append("<li data-type_voiture='"+vehic.id+"'>Locomotion : "+vehic.nom+"</li>");
     }
   });
 }
