@@ -91,7 +91,7 @@ $(document).ready(function(){
 						$("#Trans").append("<option value='"+i+"'>Voiture</option>");
 						break;
 					case 1:
-						$("#Trans").append("<option value='"+i+"'>Break/option>");
+						$("#Trans").append("<option value='"+i+"'>Break</option>");
 						break;
 					case 2:
 						$("#Trans").append("<option value='"+i+"'>Camion</option>");
@@ -205,16 +205,16 @@ $(document).ready(function(){
 	//Action se déroulant lors de la sélection d'un véhicule
 	$(document).on("change", "select#Trans", function(){
 		//console.log($("select#Trans option[data-type]"));
-		if($("select#Trans option[data-type]")!=undefined)
+		if($("select#Trans option[data-type]").length!=0)
 		{
 			//$("select#Carb").attr("disabled", "disabled");
 			var optionSelected=$("select#Trans option:selected");
 			$("select#Carb").val(optionSelected.attr('data-type'));
 		}
-		else
+		/*else
 		{
 			//$("select#Carb").removeAttr("disabled");
-		}
+		}*/
 	});
 
 	//Action sur le click du bouton Lancer
@@ -291,7 +291,6 @@ $(document).ready(function(){
 					$("#autoComplete5").append("<li data-latDep='' data-longDep='' data-latArr='' data-longArr=''>"+adressInput1.val()+" - "+adressInput2.val()+"</li>");
 		
 			}
-			//Remplissage des favoris
 		});
 	});
 });
