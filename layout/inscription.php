@@ -36,20 +36,6 @@ if(isset($error_mail) && $error_mail == "error"){ ?>
 		<span>Ville</span>:
 		<input type="text" name="ville"  value="<?php echo isset($_POST['ville']) ? $_POST['ville'] : ''; ?>" required/>
 	</label>
-	<label>
-		<span>Moyen de transport</span>:
-		<select name="mdt">
-			<option value="1" <?php echo isset($_POST['mdt']) && $_POST['mdt'] ==1 ? "selected" : ''; ?> >voiture</option>
-		</select>
-	</label>
-	<label>
-		<span>Captcha</span>:
-		<span class='captcha'><?php echo $_SESSION['captcha']; ?></span>
-	</label>
-	<label>
-		<span>Recopier le captcha</span>:
-		<input type="text" name="captcha" required />
-		<?php echo isset($error_captcha) ? "<img src='img/icones/error.png' width='25px' />" : "" ?>
-	</label>
+	<div class="g-recaptcha" data-sitekey="6Ld0uwATAAAAAHZJhd-kkJ-lw2HgJGSZWKCyRhFe"></div>
 	<input type="submit" name="btnInscription" value="Enregistrer">
 </form>
