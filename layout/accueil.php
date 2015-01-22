@@ -53,25 +53,38 @@
               <input id="btnGeocode" type="button" value="Lancer" class="btn-style bouton" />
               </div>
         </div>
-        <div class="row">
-           <div class="col-md-12"><h4><span>HISTORIQUE</span></h4>
-             <ul id="autoComplete3">
-            </ul>
-            </div>
-          </div>  
-    
+         <?php
+        if(isset($_SESSION['user']['id']))
+        {
+        ?>
+          <div class="row">
+             <div class="col-md-12"><h4><span>HISTORIQUE</span></h4>
+               <ul id="autoComplete3">
+              </ul>
+              </div>
+            </div>  
+        <?php
+        }
+        ?>
           <div class="row">
             <div class="col-md-12"><h4><span>SUIVI CONSO.</span></h4>
             <ul id="autoComplete4">
             </ul>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12"><h4><span>FAVORIS</span></h4>
-             <ul id="autoComplete5">
-            </ul>
+           <?php
+          if(isset($_SESSION['user']['id']))
+          {
+          ?>
+            <div class="row">
+              <div class="col-md-12"><h4><span>FAVORIS</span></h4>
+               <ul id="autoComplete5">
+              </ul>
+              </div>
             </div>
-          </div>
+          <?php
+          }
+          ?>
         </div>
        
          <div class="col-md-1" style="padding-top: 15px;padding-bottom: 15px;background-color: rgba(0, 0, 0, 0);border: 0;">

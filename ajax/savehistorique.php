@@ -21,14 +21,6 @@
 	$latitude_arr=$_POST['LATARR'];
 	$id_vehicule=$_POST['IDVEHIC'];
 
-	/*echo $adresse_dep." ".
-	$adresse_arr." ".
-	$longitude_dep." ".
-	$longitude_arr." ".
-	$latitude_dep." ".
-	$latitude_arr." ".
-	$id_vehicule;*/
-
 	$tool = new Tools();
 	$reponse = $tool -> infoUser($_SESSION['user']['id']);
 

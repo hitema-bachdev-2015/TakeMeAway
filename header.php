@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +22,16 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 	
 	<!-- insertion de mes scripts JS -->
-	<script type="text/javascript" src="js/index.js"></script>
-    <!--<script type="text/javascript" src="js/barreDeRecherche.js"></script>    
-    
+    <?php
+        if(empty($_SESSION['user']['id']))
+        {
+            echo '<script type="text/javascript" src="js/indexNonAuthentifie.js"></script>';
+        }
+        else
+        {
+            echo '<script type="text/javascript" src="js/index.js"></script>';
+        }
+    ?>
 	<!-- insertion des liens css -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -35,7 +45,6 @@
 </head>
 <body>
     <?php 
-        session_start();
         require_once('script/bdd.php'); 
         require_once('script/functions.php'); 
         require_once('classes/Tools.php');
