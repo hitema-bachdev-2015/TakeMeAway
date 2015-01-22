@@ -22,7 +22,7 @@
               if(isset($_SESSION['user']['id']))
               {
               ?>  
-                <h4><a href="deconnexion.php">Déconnexion</a></h4>
+                <h4><a href="admin/">Mon compte</a>|<a href="deconnexion.php">Déconnexion</a></h4>
               <?php
               }
               else

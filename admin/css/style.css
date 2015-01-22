@@ -124,3 +124,16 @@ h2
 {
   background : #02cf02;
 }
+.notification
+{
+	padding: 8px;
+	margin: 15px 0;
+	border-radius: 15px;
+}
+.modification
+{
+	border: 1px solid #00A114 !important;
+	background: #E3FFE6!important;
+	color: #828282;
+	display: none;
+}
