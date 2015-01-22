@@ -1,12 +1,17 @@
 
 <div id="tabs" class="row">
   <h1>Vehicule(s) Personnel(s)</h1>
+  <?php 
+    if(isset($_GET['modification'])){
+      echo "<div class='notification modification'>Votre modification a bien été éffectué.</div>";
+    }
+  ?>
   <ul>
     <li><a href="#monVehicule"><?php if(isset($_GET['id'])) echo "Modification"; else echo "Ajout"; ?> véhicule </a></li>
     <li><a href="#profil">Profil</a></li>
   </ul>
   <div id="profil">
-      <form action="#" method="POST" id="formProfil">
+      <form action="" method="POST" id="formProfil">
         <label>
           <span>Nom</span>:
           <input type="text" name="nom" value="<?php echo $profil['nom']; ?>" required/>
@@ -18,6 +23,7 @@
         <label>
           <span>Changer de mot de passe</span>:
           <input type="password" name="mdp"  value="" />
+          <input type="hidden" name="mdp1"  value="<?php echo $profil['mdp']; ?>" />
         </label>
         <label>
           <span>Adresse</span>:

@@ -4,6 +4,7 @@ $(document).ready(function(){
 		active:0,
 	});
 	
+	$(".modification").fadeIn(500).delay(3000).fadeOut(500);
 
 	$("#valid_modif").on('click',function(e){
 		e.preventDefault();

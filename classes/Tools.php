@@ -85,4 +85,20 @@ class Tools {
         $query->execute(array("id_historique" => $id_hist));
     }
 
+
+    public static function updateUser($nom, $prenom, $mdp, $adresse, $cp, $ville, $id){
+        global $bdd;
+        $sql = "UPDATE utilisateur SET nom = :nom, prenom=:prenom, mdp=:mdp, adresse=:adresse, cp=:cp, ville=:ville WHERE id=:id";
+        $query = $bdd->prepare($sql);
+        $query->execute(array(
+                "id" => $id,
+                "nom" => $nom,
+                "prenom" => $prenom,
+                "mdp" => $mdp,
+                "adresse" => $adresse,
+                "cp" => $cp,
+                "ville" => $ville
+            ));
+    }
+
 }
