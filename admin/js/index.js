@@ -3,6 +3,12 @@ $(document).ready(function(){
 	$( "#tabs" ).tabs({
 		active:0,
 	});
+	// $(".lien_voiture").on('click', function(event){
+	// 	event.preventDefault();
+	//     $( "#tabs" ).tabs({
+	//       active:0,
+	//     });
+	// });
 	
 	$(".modification").fadeIn(500).delay(3000).fadeOut(500);
 

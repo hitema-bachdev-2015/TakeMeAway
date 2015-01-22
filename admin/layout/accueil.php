@@ -48,7 +48,11 @@
           for ($i=0; $i < count($listeVehicule) ; $i++) { 
               echo  "
                       <li>
-                      <a href='?id=" . $listeVehicule[$i]['id'] . "#monVehicule'><span>".$listeVehicule[$i]['marque']."</span><span>".$listeVehicule[$i]['modele']."</span><span>".$listeVehicule[$i]['type_moteur']."</span></a>
+                        <a  class='lien_voiture' href='?id=" . $listeVehicule[$i]['id'] . "'>
+                          <span>".$listeVehicule[$i]['marque']."</span>
+                          <span>".$listeVehicule[$i]['modele']."</span>
+                          <span>".$listeVehicule[$i]['type_moteur']."</span>
+                        </a>
                       </li>
                     ";
           }
@@ -108,7 +112,11 @@
           for ($i=0; $i < count($listeVehicule) ; $i++) { 
               echo  "
                       <li>
-                      <a href='?id=" . $listeVehicule[$i]['id'] . "'><span>".$listeVehicule[$i]['marque']."</span><span>".$listeVehicule[$i]['modele']."</span><span>".$listeVehicule[$i]['type_moteur']."</span></a>
+                        <a href='?id=" . $listeVehicule[$i]['id'] . "'>
+                          <span>".$listeVehicule[$i]['marque']."</span>
+                          <span>".$listeVehicule[$i]['modele']."</span>
+                          <span>".$listeVehicule[$i]['type_moteur']."</span>
+                        </a>
                       </li>
                     ";
           }
