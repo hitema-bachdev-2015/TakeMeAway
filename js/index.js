@@ -157,7 +157,7 @@ $(document).ready(function(){
 				//Ajout du bouton favoris s'il n'existe pas
 				if($(that).next().attr("id") != 'btnAddToFavoris')
 				{
-					$('#btnGeocode').after('<input id="btnAddToFavoris" type="button" value="Ajouter aux favoris" class="btn-style" />');
+					$('#btnGeocode').after('<input id="btnAddToFavoris" type="button" value="Ajouter aux favoris" class="btn-style bouton" />');
 				}
 			},
 			async : true
