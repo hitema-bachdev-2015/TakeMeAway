@@ -1,7 +1,7 @@
       <h2>Connexion au site</h2>
    
-<!--       <form action="inscription.php" method="post">
- -->         
+       <form action="accueil.php" method="post">
+          
          
                <label>
              <span>E-mail :</span>
@@ -38,8 +38,17 @@
                   data: {login : login,mdp : mdp}, 
               
       success: function(data){
-               console.log(data);
+               //console.log(data);
+               var result=jQuery.parseJSON(data);
+               if(result!="EMPTY")
+               {
+                  $('form').submit();
                }
+               /*else
+               {
+
+               } */
+      }
 
                });
 });

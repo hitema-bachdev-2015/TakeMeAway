@@ -12,7 +12,6 @@
 
 
 	}*/
-	$_SESSION['user']['id'] = 1;
 	$adresse_dep = $_POST['DEP'];
 	$adresse_arr = $_POST['ARR'];
 	$longitude_dep=$_POST['LONGDEP'];

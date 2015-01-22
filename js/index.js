@@ -20,6 +20,7 @@ $(document).ready(function(){
 
 	var barreDeRecherche=$("#barreDeRecherche");
 	var autoCompleteBdr=$("#autoCompleteBdr");
+
 	//Récupération de l'historique
 	$.ajax({
 		url:"./ajax/gethistorique.php"
@@ -51,16 +52,54 @@ $(document).ready(function(){
 		//Si l'historique n'est pas vide
 		if(data != "EMPTY")
 		{	
+			//Remplissage des favoris
 			$("#autoComplete5").empty();
 			for(var i=0; i<data.length; i++)
 			{
-				//Remplissage des favoris
+				
 				$("#autoComplete5").append("<li data-latDep='"+data[i].latitude_depart+"\' data-longDep='"+data[i].longitude_depart+"\' data-latArr='"+data[i].latitude_arrive+"\' data-longArr='"+data[i].longitude_arrive+"'>"+data[i].adresse_depart+" - "+data[i].adresse_arrive+"</li>");
 			}
 		}
 		else
 		{
 			$("#autoComplete5").append("<li data='default'>Pas de favoris</li>");
+		}
+	});
+
+	//Récupération des voitures personnelles d'un utilisateur
+	$.ajax({
+		url:"./ajax/getvoitures.php"
+	}).done(function(result){
+		var data=jQuery.parseJSON(result);
+		$("#Trans").empty();
+		//Si la liste de voitures n'est pas vide
+		if(data != "EMPTY")
+		{	
+			//Remplissage des voitures
+			for(var i=0; i<data.length; i++)
+			{
+				$("#Trans").append("<option value='"+data[i].id+"' data-type='"+data[i].type_moteur+"' data-conso='"+data[i].consommation+"'>"+data[i].marque+" - "+data[i].modele+"</option>");
+			}
+		}
+		else
+		{
+			for(var i=0; i<3; i++)
+			{
+				switch(i)
+				{
+					case 0:
+						$("#Trans").append("<option value='"+i+"'>Voiture</option>");
+						break;
+					case 1:
+						$("#Trans").append("<option value='"+i+"'>Break/option>");
+						break;
+					case 2:
+						$("#Trans").append("<option value='"+i+"'>Camion</option>");
+						break;
+					default:
+						break;
+				}
+			}
 		}
 	});
 
@@ -163,6 +202,21 @@ $(document).ready(function(){
 
 	});
 	
+	//Action se déroulant lors de la sélection d'un véhicule
+	$(document).on("change", "select#Trans", function(){
+		//console.log($("select#Trans option[data-type]"));
+		if($("select#Trans option[data-type]")!=undefined)
+		{
+			//$("select#Carb").attr("disabled", "disabled");
+			var optionSelected=$("select#Trans option:selected");
+			$("select#Carb").val(optionSelected.attr('data-type'));
+		}
+		else
+		{
+			//$("select#Carb").removeAttr("disabled");
+		}
+	});
+
 	//Action sur le click du bouton Lancer
 	buttonGeo.on("click", function(){
 		var dep={lat:parseFloat(latDepart) , longit:parseFloat(longDepart) , nom:adressInput1.val()};

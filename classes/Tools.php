@@ -98,7 +98,7 @@ class Tools {
         return $reponse;
     }
 
-     //Récuprération des favoris d'un utilisateur dans la base
+     //Récupération des favoris d'un utilisateur dans la base
     public static function recupFav($id_user){
         global $bdd;
         $sql = "SELECT adresse_depart, latitude_depart, longitude_depart, adresse_arrive, latitude_arrive, longitude_arrive, id_vehicule FROM historique WHERE id_utilisateur = :id AND favori=1";
@@ -121,6 +121,16 @@ class Tools {
                 "cp" => $cp,
                 "ville" => $ville
             ));
+    }
+
+    //Récupération des voitures personnelles d'un utilisateur dans la base
+    public static function recupVehicules($id_user){
+        global $bdd;
+        $sql = "SELECT id, marque, modele, consommation, type_moteur, type_vehicule FROM vehicule WHERE id_utilisateur = :id";
+        $query = $bdd->prepare($sql);
+        $query->execute(array("id" => $id_user));
+        $reponse = $query->FetchAll();
+        return $reponse;
     }
 
 }

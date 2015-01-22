@@ -51,8 +51,8 @@
               <label>
                 <span>Carburant </span>:
                 <select id="Carb">
-                  <option value="">Essence</option>
-                  <option value="">Diesel</option>
+                  <option value="0">Essence</option>
+                  <option value="1">Diesel</option>
                 </select>
               </label>
               <label>
