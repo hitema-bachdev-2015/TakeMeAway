@@ -17,7 +17,22 @@
       <div class="row">
         <div class="col-md-4" style="padding-top: 0;padding-bottom: 0;background-color: rgba(0, 0, 0, 0);border: 0;">
           <div class="row lienConnexion">
-            <div class="col-md-12"><h4><a href="connexion.php">Connexion</a>|<a href="inscription.php">Inscripsion</a></h4></div>
+            <div class="col-md-12">
+              <?php
+              if(isset($_SESSION['user']['id']))
+              {
+              ?>  
+                <h4><a href="deconnexion.php">Deconnexion</a></h4>
+              <?php
+              }
+              else
+              {
+              ?>
+                <h4><a href="connexion.php">Connexion</a>|<a href="inscription.php">Inscripsion</a></h4>
+              <?php  
+              }
+              ?>
+            </div>
           </div>
 
           <div class="row">
