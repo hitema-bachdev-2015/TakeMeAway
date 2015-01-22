@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	$( "#tabs" ).tabs({
-		active:1,
+		active:0,
 	});
 	
 
@@ -19,6 +19,8 @@ $(document).ready(function(){
 					type_vehicule: $("#champ_vehicule").val()
 				},
 				success: function(data){
+					// document.location.reload();
+					document.location.href='index.php?modification';
 				},
 				error: function(){}
 			});

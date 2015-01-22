@@ -1,7 +1,9 @@
-<div id="tabs">
+
+<div id="tabs" class="row">
+  <h1>Vehicule(s) Personnel(s)</h1>
   <ul>
+    <li><a href="#monVehicule"><?php if(isset($_GET['id'])) echo "Modification"; else echo "Ajout"; ?> véhicule </a></li>
     <li><a href="#profil">Profil</a></li>
-    <li><a href="#monVehicule"><?php if(isset($_GET['id'])) echo "Modification Vehicule"; else echo "Ajout Vehicule"; ?> </a></li>
   </ul>
   <div id="profil">
       <form action="#" method="POST" id="formProfil">
@@ -29,10 +31,11 @@
           <span>Ville</span>:
           <input type="text" name="ville"  value="<?php echo $profil['ville']; ?>" required/>
         </label>
-        <input type="submit" name="btnModifProfil" value="Modifier">
+        <input type="submit" name="btnModifProfil" value="Modifier" class="bouton">
       </form>
-      <ul>
-          <li class='titleForm'>
+      <ul class='titleForm'>
+          <h2>Ma liste de véhicule</h2>
+          <li>
             <span>Marque</span><span>Modele</span><span>Moteur</span>
           </li>
         <?php 
@@ -49,13 +52,25 @@
   <div id="monVehicule">
 	<?php if(isset($_GET['id'])) $vehicule = new Vehicule($_GET['id']); ?>
 	<form id="detail_vehicule" method="POST">
-		<span>- Constucteur :</span><input id="champ_constructeur" <?php if(isset($_GET['id'])) echo "value=" . $vehicule -> getMarque(); ?> name="constucteur"></input>
-		<span>- Modèle :</span><input id="champ_modele" name="modele"<?php if(isset($_GET['id'])) echo "value=" . $vehicule->getModele(); ?>></input>
-		<span>- Type Moteur</span>
+    <label>
+      <span>Constucteur </span>:
+      <input id="champ_constructeur" <?php if(isset($_GET['id'])) echo "value=" . $vehicule -> getMarque(); ?> name="constucteur"></input>
+    </label>
+		<label>
+		  <span>Modèle </span>:
+      <input id="champ_modele" name="modele"<?php if(isset($_GET['id'])) echo "value=" . $vehicule->getModele(); ?>></input>
+    </label>
+    <label>
+		  <span>Type Moteur</span>:
 			<input type="radio" id="champ_essence" value="0" name="type_moteur" <?php if(isset($_GET['id']) && ($vehicule->getTypeMoteur() == 0)) echo "checked"; ?> >Essence
 			<input type="radio" id="champ_diesel" value="1" name="type_moteur" <?php if(isset($_GET['id']) && ($vehicule->getTypeMoteur() == 1)) echo "checked"; ?> >Diesel
-		<span>- Consommation :</span><input id="champ_consommation" name="constucteur"<?php if(isset($_GET['id'])) echo "value=" . $vehicule->getConsommation(); ?>></input>
-		<span>- Type vehicule :</span>
+		</label>
+    <label>
+      <span>Consommation </span>:
+      <input id="champ_consommation" name="constucteur"<?php if(isset($_GET['id'])) echo "value=" . $vehicule->getConsommation(); ?>></input>
+    </label>
+    <label>
+		  <span> Type vehicule </span>:
 			<select id="champ_vehicule">
 				<?php
 					if(isset($_GET['id'])) {
@@ -75,10 +90,12 @@
 					}
 				?>
 			</select>
-		<button id="valid_modif">VALIDER</button>
+    </label>
+		<button id="valid_modif" class="bouton"><?php if(isset($_GET['id'])) echo "Modification"; else echo "Ajout"; ?></button>
 	</form>
-      <ul>
-          <li class='titleForm'>
+      <ul class='titleForm'>
+          <h2>Ma liste de véhicule</h2>
+          <li>
             <span>Marque</span><span>Modele</span><span>Moteur</span>
           </li>
         <?php 

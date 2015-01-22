@@ -1,0 +1,126 @@
+body
+{
+	background: #f9f9f9
+}
+h1
+{
+	text-align: center;
+	margin-bottom: 55px;
+	background: rgb(87, 224, 104);
+	padding: 20px;
+	color: #fff;
+}
+#tabs 
+{
+	margin: 0 auto;
+	width: 1170px;
+}
+.ui-corner-all 
+{
+	background: none;
+	border: none;
+	padding: 1px 0px!important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default
+{
+	background: #ddd;
+	border: none;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active
+{
+	background: rgb(87, 224, 104);
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited
+{
+	color: #B9B9B9;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited
+{
+	color: #fff;
+}
+#tabs > div 
+{
+	border: 1px solid #57E068;
+	background: #fff;
+}
+#profil > *,
+#monVehicule > *
+{
+	display: inline-block;	
+	vertical-align: top;
+}
+#profil > form,
+#detail_vehicule
+{
+	width: 440px;
+	border-right: 1px solid;
+}
+#profil > form > label,
+#detail_vehicule > label
+{
+	display: block;
+}
+#profil > form > label > span,
+#detail_vehicule > label > span
+{
+	display: inline-block;
+	width: 210px;
+	line-height: 32px;
+}
+#formProfil .bouton,
+#monVehicule .bouton
+{
+	display: block;
+	margin: 12px auto;
+}
+.titleForm
+{
+	margin: 0; 
+	width: 55%;
+}
+h2
+{
+	margin: 0 0 20px 0;
+	text-align: center;
+}
+.titleForm > li:nth-child(2)
+{
+	background: #000000;
+	color: #fff;
+	padding: 2px;
+}
+.titleForm > li
+{
+	list-style: none;
+	padding: 0;
+	background: #FCFCFC;
+	border-bottom: 1px solid;
+	line-height: 35px;
+	text-align: center;
+}
+.titleForm > li > a > span,
+.titleForm > li > span
+{
+	width: 201px;
+	display: inline-block;
+}
+.titleForm > li > span
+{
+	font-size: 20px;
+	text-align: center;
+	line-height: 35px;
+}
+.bouton
+{
+  display: inline-block;
+  padding: 3px 30px;
+  margin: 8px auto;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  background: #57E068;
+}
+.bouton:hover
+{
+  background : #02cf02;
+}
