@@ -14,11 +14,13 @@ $(document).ready(function(){
 
 	$("#valid_modif").on('click',function(e){
 		e.preventDefault();
-		$.ajax({
+		if($(this).text()=="Modification")
+		{
+			$.ajax({
 				url: "ajax/modifier_vehicule.php",
 				type: "POST",
 				data: {
-					id: 1,
+					id: $("#detail_vehicule").attr("data-idVehic"),
 					marque: $("#champ_constructeur").val(),
 					modele: $("#champ_modele").val(),
 					conso: $("#champ_consommation").val(),
@@ -31,5 +33,32 @@ $(document).ready(function(){
 				},
 				error: function(){}
 			});
+		}
+		else
+		{
+		
+			$.ajax({
+				url: "ajax/ajouter_vehicule.php",
+				type: "POST",
+				data: {
+					marque: $("#champ_constructeur").val(),
+					modele: $("#champ_modele").val(),
+					conso: $("#champ_consommation").val(),
+					type_moteur: ($("#champ_essence").is(':checked')) ? 0 : 1,
+					type_vehicule: $("#champ_vehicule").val()
+				},
+				success: function(data){
+					// document.location.reload();
+					//console.log(data);
+					if(data!=0)
+					{
+						document.location.href='index.php?ajout';
+					}
+				},
+				error: function(){}
+			});
+		
+		}
+		
 	});
 });

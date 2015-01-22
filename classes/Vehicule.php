@@ -84,4 +84,17 @@ class Vehicule {
 	
 		$this->hydrate = true;
 	}
+
+	//Insertion d'un nouveau véhicule dans la base
+	public function insertVehicule($id_user, $marque, $model, $consomation, $typeMoteur, $typeVehicule){
+		global $bdd;
+
+		$query = "INSERT INTO vehicule(id_utilisateur, marque, modele, consommation, type_moteur, type_vehicule)".
+						" VALUES (".$id_user.", '".$marque."', '".$model."', ".$consomation.", ".$typeMoteur.", ".$typeVehicule.")";
+
+		$sth = $bdd->prepare($query);
+		$sth->execute();
+
+		return $bdd->lastInsertId();
+	}
 }

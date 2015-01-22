@@ -40,14 +40,11 @@
       success: function(data){
                //console.log(data);
                var result=jQuery.parseJSON(data);
-               if(result!="EMPTY")
+               if(result=="EMPTY")
                {
-                  $('form').submit();
+                  $('form').attr("action", "");
                }
-               /*else
-               {
-
-               } */
+               $('form').submit();
       }
 
                });

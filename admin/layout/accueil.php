@@ -5,6 +5,10 @@
     if(isset($_GET['modification'])){
       echo "<div class='notification modification'>Votre modification a bien été éffectué.</div>";
     }
+    elseif(isset($_GET['ajout']))
+    {
+       echo "<div class='notification modification'>Votre ajout a bien été éffectué.</div>";
+    }
   ?>
   <ul>
     <li><a href="#monVehicule"><?php if(isset($_GET['id'])) echo "Modification"; else echo "Ajout"; ?> véhicule </a></li>
@@ -61,7 +65,7 @@
   </div>
   <div id="monVehicule">
 	<?php if(isset($_GET['id'])) $vehicule = new Vehicule($_GET['id']); ?>
-	<form id="detail_vehicule" method="POST">
+	<form id="detail_vehicule" data-idVehic="<?php if(isset($_GET['id'])) echo $_GET['id']; ?>" method="POST">
     <label>
       <span>Constucteur </span>:
       <input id="champ_constructeur" <?php if(isset($_GET['id'])) echo "value=" . $vehicule -> getMarque(); ?> name="constucteur"></input>
