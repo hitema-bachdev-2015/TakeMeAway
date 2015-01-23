@@ -9,10 +9,15 @@ function captcha()
 
 function thisMail($contenu, $sujet, $from, $mail){
     try {
-        // instanciation de $mandrill
-        $mandrill = new Mandrill('zQQmx-0apGL590tyABAImg');
-        // contenu
-        $message = array(
+    $mandrill = new Mandrill('8PD2vK0-lFipgL0ovhPV0g');
+    $template_name = 'Test';
+    $template_content = array(
+        array(
+            'name' => 'Test',
+            'content' => 'Test'
+        )
+    );
+    $message = array(
                     'html' => $contenu,
                     'text' => $contenu,
                     'subject' => $sujet,
@@ -26,15 +31,30 @@ function thisMail($contenu, $sujet, $from, $mail){
                                 )
                             )
                     );
-        $async = false;
-        $ip_pool = 'Main Pool';
-        $result = $mandrill->messages->send($message, $async, $ip_pool);
-    } catch(Mandrill_Error $e) {
-            // Mandrill errors are thrown as exceptions
-            echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
-            // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
-            throw $e;
-    }
+    $async = false;
+    $ip_pool = 'Main Pool';
+    /*$send_at = 'example send_at';*/
+    $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
+    print_r($result);
+    /*
+    Array
+    (
+        [0] => Array
+            (
+                [email] => recipient.email@example.com
+                [status] => sent
+                [reject_reason] => hard-bounce
+                [_id] => abc123abc123abc123abc123abc123
+            )
+    
+    )
+    */
+} catch(Mandrill_Error $e) {
+    // Mandrill errors are thrown as exceptions
+    echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+    // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+    throw $e;
+}
 }
 
 
