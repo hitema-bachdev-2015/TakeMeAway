@@ -1,14 +1,21 @@
-body
-{
-	background: #f9f9f9
+body { 
+  background: url(../img/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-h1
+.title
 {
-	text-align: center;
-	margin-bottom: 55px;
-	background: rgb(60, 186, 54);
-	padding: 20px;
-	color: #fff;
+  text-align: center;
+  margin-bottom: 55px;
+  background: #53C7B3;
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px;
+  margin-top: -10px;
+  margin-left: -100px;
+  margin-right: -100px;
+  color: #fff;
 }
 #tabs 
 {
@@ -33,7 +40,7 @@ h1
 }
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active
 {
-	background: rgb(60, 186, 54);
+	background: #53C7B3;
 }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited
 {
@@ -45,7 +52,7 @@ h1
 }
 #tabs > div 
 {
-	border: 1px solid #57E068;
+	border: 1px solid #00E6B8;
 	background: #fff;
 }
 #profil > *,
@@ -123,11 +130,11 @@ h2
   border: none;
   color: #fff;
   font-size: 16px;
-  background: #3CBA36;
+  background: #53C7B3;
 }
 .bouton:hover
 {
-  background : #4FE048;
+  background : #00E6B8;
 }
 .notification
 {
