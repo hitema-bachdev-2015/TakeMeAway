@@ -6,7 +6,7 @@ h1
 {
 	text-align: center;
 	margin-bottom: 55px;
-	background: rgb(87, 224, 104);
+	background: rgb(60, 186, 54);
 	padding: 20px;
 	color: #fff;
 }
@@ -28,7 +28,7 @@ h1
 }
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active
 {
-	background: rgb(87, 224, 104);
+	background: rgb(60, 186, 54);
 }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited
 {
@@ -118,11 +118,11 @@ h2
   border: none;
   color: #fff;
   font-size: 16px;
-  background: #57E068;
+  background: #3CBA36;
 }
 .bouton:hover
 {
-  background : #02cf02;
+  background : #4FE048;
 }
 .notification
 {
