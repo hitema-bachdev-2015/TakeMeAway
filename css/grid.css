@@ -1,14 +1,25 @@
 body {
   background: #f9f9f9;
 }
-h4 {
+.title
+{
+  text-align: center;
+  margin-bottom: 55px;
+  background: rgb(87, 224, 104);
+  padding: 20px;
+  color: #fff;
+}
+h4 
+{
   margin-top: 25px;
 }
-.row {
+.row 
+{
   margin: 0;
   margin-bottom: 20px;
 }
-.row .row {
+.row .row 
+{
   margin-top: 10px;
   margin-bottom: 0;
 }
@@ -197,8 +208,33 @@ ul#autoCompleteBdr
 {
   text-align: left;
 }
-
-
+#formInscription 
+{
+  width: 370px;
+  margin: 0 auto;
+  padding: 10px 0;
+  background: #fff;
+  position: relative;
+}
+#formInscription > p
+{
+  text-align: center;
+}
+#formInscription > p > a
+{
+  color: #fff;
+  text-decoration: none;
+}
+.g-recaptcha > div > div 
+{
+  margin: 15px auto;
+}
+.errorCaptcha
+{
+  position: absolute;
+  bottom: 107px;
+  right: 106px;
+}
 li {list-style-type: none;}
 li:before {
     content: "→ "; /* caractère UTF-8 */

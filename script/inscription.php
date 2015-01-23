@@ -1,11 +1,24 @@
 <?php 
+	$x = explode('/',$_SERVER['REDIRECT_URL']);
+	$url= 'http://127.0.0.1';
+	for ($i=0; $i < count($x)-1 ; $i++) { 
+		if($i>0){
+			$url = $url.'/'.$x[$i];
+		}else{
+			$url = $url.''.$x[$i];
+		}
+	}
+	$url = $url.'/ajax/confirmeCompete.php';
+
 	if(isset($_POST['btnInscription'])){
-		if($_SESSION['captcha'] == $_POST['captcha']){
+		$myReponse = isValid($_POST['g-recaptcha-response']);
+		if($myReponse == true){
 			extract($_POST);
 			if(Tools::checkUser($mail) == 0):
 				$uniqid = uniqid();
-				$token = $nom.'#'.$uniqid.'#'.$prenom.'#'.$uniqid;
-				Tools::addUser($nom, $prenom, $mail, $mdp, $token, $adresse, $cp, $ville, $mdt);
+				$token = $nom.$uniqid.$prenom.$uniqid;
+				$url = $url.'?cle='.$token;
+				Tools::addUser($nom, $prenom, $mail, $mdp, $cp, $adresse, $ville, $token);
 				try {
     				$mandrill = new Mandrill('zQQmx-0apGL590tyABAImg');
 				    $template_content = array(
@@ -15,11 +28,11 @@
 				        )
 				    );
 				    $message = array(
-				        'html' => '<p>Bonjour, Votre inscription a bien été pris en compte pour le finaliser, veuillez cliquer sur le lien ci-dessous :http://127.0.0.1/'.$_SERVER['REDIRECT_URL'].'?'.$token.'</p>',
-				        'text' => 'Bonjour, Votre inscription a bien été pris en compte pour le finaliser, veuillez cliquer sur le lien ci-dessous :http://127.0.0.1/'.$_SERVER['REDIRECT_URL'].'?'.$token.'',
-				        'subject' => 'example subject',
+				        'html' => '<p>Bonjour, Votre inscription a bien été pris en compte pour le finaliser, veuillez cliquer sur le lien ci-dessous :'.$url.'</p>',
+				        'text' => 'Bonjour, Votre inscription a bien été pris en compte pour le finaliser, veuillez cliquer sur le lien ci-dessous :'.$url.'',
+				        'subject' => 'Confirmation d\'inscription à TakeMeAway',
 				        'from_email' => 'navecbatchi@gmail.com', //envoit
-				        'from_name' => 'Example Name',
+				        'from_name' => 'Confirmation d\'inscription à TakeMeAway',
 				        'to' => array(
 				            array(
 				                'email' => $mail, //recoit
@@ -44,7 +57,4 @@
 			$error_captcha = 'error';
 		}
 	}
-?>
-<?php
-
 ?>

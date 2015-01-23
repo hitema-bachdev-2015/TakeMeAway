@@ -29,6 +29,30 @@ class Tools {
         return count($reponse);
     }
     
+
+    public static function checkToken($token){
+        global $bdd;
+        $sql = "SELECT * FROM utilisateur WHERE token=:token ";
+        $query = $bdd->prepare($sql);
+        $query->execute(array("token" => $token));
+        $reponse = $query->FetchAll();
+        if(count($reponse) > 0){
+            Tools::confirmerUser($reponse[0]['id']);
+            return $reponse;
+        }else{
+            return false;
+        }
+        return $reponse;
+    }
+
+
+    public static function confirmerUser($id){
+        global $bdd;
+        $sql = "UPDATE utilisateur SET token='', connecte=1 WHERE id=:id";
+        $query = $bdd->prepare($sql);
+        $query->execute(array("id" => $id));
+    }
+
     // Insertion d'une nouvelle utilisateur
     public static function infoUser($id){
         global $bdd;
@@ -98,7 +122,7 @@ class Tools {
         return $reponse;
     }
 
-     //Récupération des favoris d'un utilisateur dans la base
+     //Récuprération des favoris d'un utilisateur dans la base
     public static function recupFav($id_user){
         global $bdd;
         $sql = "SELECT adresse_depart, latitude_depart, longitude_depart, adresse_arrive, latitude_arrive, longitude_arrive, id_vehicule FROM historique WHERE id_utilisateur = :id AND favori=1";

@@ -101,8 +101,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `cp` varchar(5) NOT NULL,
   `ville` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `token` (`token`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
