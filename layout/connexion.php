@@ -3,7 +3,7 @@
 
     <?php 
       if(isset($_GET['confirmattion']) && $_GET['confirmattion']=='error'){
-        echo "<div class='notification notError'>Information érroné ou inexistant .</div>";
+        echo "<div class='notification notError'>Information érroné, inexistant ou non confirmé .</div>";
       }
     ?>
    <form action="" method="post" id="formConnexion">

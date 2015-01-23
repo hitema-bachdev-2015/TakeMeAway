@@ -9,7 +9,9 @@ function captcha()
 
 function thisMail($contenu, $sujet, $from, $mail){
     try {
+        // instanciation de $mandrill
         $mandrill = new Mandrill('zQQmx-0apGL590tyABAImg');
+        // contenu
         $message = array(
                     'html' => $contenu,
                     'text' => $contenu,
@@ -50,7 +52,9 @@ function isValid($code, $ip = null)
     }
     $url = "https://www.google.com/recaptcha/api/siteverify?" . http_build_query($params);
     if (function_exists('curl_version')) {
+        // initialisation de l'url
         $curl = curl_init($url);
+        // options 
         curl_setopt($curl, CURLOPT_HEADER, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_TIMEOUT, 1);
