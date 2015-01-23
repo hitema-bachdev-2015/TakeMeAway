@@ -353,7 +353,7 @@ function cleanDirection(){
 }
 //Fonction permettant de dessiner l'itinéraire d'un trajet sur la map
 //+ remplissage du détail des informations sur le trajet
-function drawItin(depart, arrivee){*
+function drawItin(depart, arrivee){
 	directionsDisplay.setMap(map);
  	var Start=new google.maps.LatLng(depart.lat, depart.longit);
  	var End=new google.maps.LatLng(arrivee.lat, arrivee.longit);
