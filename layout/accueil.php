@@ -1,7 +1,7 @@
     <div class="container">
 
       <div class="page-header">
-        <h1>TakeMeAway!</h1>
+        <h1>TakeMeAway! ©</h1>
       </div>
 
       <div class="row">
