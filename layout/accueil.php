@@ -108,7 +108,7 @@
         </div>
         <div class="col-md-7">
          </div>
-           <div class="col-md-1" style="padding-top: 15px;padding-bottom: 15px;background-color: #f9f9f9;border: 0;">
+           <div class="col-md-1" style="padding-top: 15px;padding-bottom: 15px;background-color: rgba(0,0,0,0);border: 0;">
         </div>
           
        
