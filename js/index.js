@@ -89,13 +89,13 @@ $(document).ready(function(){
 				switch(i)
 				{
 					case 0:
-						$("#Trans").append("<option value='"+i+"'>Voiture</option>");
+						$("#Trans").append("<option value='"+i+"' data-conso='7'>Voiture</option>");
 						break;
 					case 1:
-						$("#Trans").append("<option value='"+i+"'>Break</option>");
+						$("#Trans").append("<option value='"+i+"' data-conso='10'>Break</option>");
 						break;
 					case 2:
-						$("#Trans").append("<option value='"+i+"'>Camion</option>");
+						$("#Trans").append("<option value='"+i+"' data-conso='15'>Camion</option>");
 						break;
 					default:
 						break;
@@ -326,7 +326,10 @@ function drawItin(depart, arrivee){
     if(status == google.maps.DirectionsStatus.OK) {
     	//console.log(response);
     	var vehic={id:$('select#Trans option:selected').val(),
-    				nom:$('select#Trans option:selected').text()};
+    				nom:$('select#Trans option:selected').text(),
+    				conso:$('select#Trans option:selected').attr("data-conso"),
+    				carbu:$('select#Carb option:selected').text()
+    			};
       	directionsDisplay.setDirections(response);
       	distance=response.routes[0].legs[0].distance.value;
       	temps=response.routes[0].legs[0].duration.text;
@@ -339,6 +342,8 @@ function drawItin(depart, arrivee){
       	$("#autoComplete4").append("<li data-time='"+response.routes[0].legs[0].duration.value+"'>Temps : "+temps+"</li>");
       	$("#autoComplete4").append("<li data-distance='"+distance+"'>Distance : "+distance+" mètres</li>");
     	$("#autoComplete4").append("<li data-type_voiture='"+vehic.id+"'>Locomotion : "+vehic.nom+"</li>");
+    	$("#autoComplete4").append("<li data-conso="+vehic.conso+">Consommation : "+vehic.conso+" L/100km</li>");
+    	$("#autoComplete4").append("<li data-carbu="+vehic.carbu+">Carburant : "+vehic.carbu+"</li>");
     }
   });
 }

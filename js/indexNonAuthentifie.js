@@ -184,6 +184,11 @@ function drawItin(depart, arrivee){
   directionsService.route(request, function(response, status) {
     if(status == google.maps.DirectionsStatus.OK) {
     	//console.log(response);
+    	var vehic={id:$('select#Trans option:selected').val(),
+    				nom:$('select#Trans option:selected').text(),
+    				conso:$('select#Trans option:selected').attr("data-conso"),
+    				carbu:$('select#Carb option:selected').text()
+    			};
       	directionsDisplay.setDirections(response);
       	distance=response.routes[0].legs[0].distance.value;
       	temps=response.routes[0].legs[0].duration.text;
@@ -195,6 +200,9 @@ function drawItin(depart, arrivee){
       	$("#autoComplete4").append("<li data-destination='"+addArrivee+"'>Destination : "+addArrivee+"</li>");
       	$("#autoComplete4").append("<li data-time='"+response.routes[0].legs[0].duration.value+"'>Temps : "+temps+"</li>");
       	$("#autoComplete4").append("<li data-distance='"+distance+"'>Distance : "+distance+" mètres</li>");
+    	$("#autoComplete4").append("<li data-type_voiture='"+vehic.id+"'>Locomotion : "+vehic.nom+"</li>");
+    	$("#autoComplete4").append("<li data-conso="+vehic.conso+">Consommation : "+vehic.conso+" L/100km</li>");
+    	$("#autoComplete4").append("<li data-carbu="+vehic.carbu+">Carburant : "+vehic.carbu+"</li>");
     }
   });
 }

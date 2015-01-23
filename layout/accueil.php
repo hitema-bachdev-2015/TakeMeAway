@@ -62,9 +62,9 @@
               <label>
                 <span>Transport </span>:
                 <select id="Trans">
-                  <option value="0">Voiture</option>
-                  <option value="1">Break</option>
-                  <option value="2">Camion</option>
+                  <option value="0" data-conso="7">Voiture</option>
+                  <option value="1" data-conso="10">Break</option>
+                  <option value="2" data-conso="15">Camion</option>
                 </select>
               </label>
               <input id="btnGeocode" type="button" value="Lancer" class="btn-style bouton" />
