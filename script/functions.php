@@ -7,6 +7,35 @@ function captcha()
 	return $liste;
 }
 
+function thisMail($contenu, $sujet, $from, $mail){
+    try {
+        $mandrill = new Mandrill('zQQmx-0apGL590tyABAImg');
+        $message = array(
+                    'html' => $contenu,
+                    'text' => $contenu,
+                    'subject' => $sujet,
+                    'from_email' => $from, //envoit
+                    'from_name' => $sujet,
+                    'to' => array(
+                                array(
+                                    'email' => $mail, //recoit
+                                    'name' => 'Recipient Name',
+                                    'type' => 'to'
+                                )
+                            )
+                    );
+        $async = false;
+        $ip_pool = 'Main Pool';
+        $result = $mandrill->messages->send($message, $async, $ip_pool);
+    } catch(Mandrill_Error $e) {
+            // Mandrill errors are thrown as exceptions
+            echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+            // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+            throw $e;
+    }
+}
+
+
 function isValid($code, $ip = null)
 {
     if (empty($code)) {
