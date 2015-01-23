@@ -28,7 +28,7 @@
               else
               {
               ?>
-                <h4><a href="connexion.php">Connexion</a>|<a href="inscription.php">Inscripsion</a></h4>
+                <h4><a href="connexion.php">Connexion</a>|<a href="inscription.php">Inscription</a></h4>
               <?php  
               }
               ?>
