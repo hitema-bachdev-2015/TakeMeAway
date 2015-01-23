@@ -24,7 +24,7 @@
 				$from = 'navecbatchi@gmail.com';
 
 				thisMail($contenu, $sujet, $from, $mail);
-				header("location:connexion.php");
+				header("location:connexion.html?confirmation=send");
 			else:
 			$error_mail = 'error';
 			endif;

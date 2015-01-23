@@ -13,7 +13,7 @@
 
 	if($page == 'accueil.html?confirmattion=ok'){
 		$page ="accueil.php";
-	}elseif ($page == 'connexion.html?confirmattion=error') {
+	}elseif ($page == 'connexion.html?confirmation=error' || $page == 'connexion.html?confirmation=send' || $page == 'connexion.html?confirmation=ok') {
 		$page ="connexion.php";
 	}
 	include("script/".$page);

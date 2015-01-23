@@ -230,19 +230,19 @@ $(document).ready(function(){
 	});
 	
 	//Action se déroulant lors de la sélection d'un véhicule
-	/*$(document).on("change", "select#Trans", function(){
-		//console.log($("select#Trans option[data-type]"));
-		if($("select#Trans option[data-type]").length!=0)
+	$(document).on("change", "select#Trans", function(){
+		//console.log($("select#Trans option:selected").attr("data-type"));
+		var optionSelected=$("select#Trans option:selected");
+		if(optionSelected.attr("data-type")!=undefined)
 		{
-			//$("select#Carb").attr("disabled", "disabled");
-			var optionSelected=$("select#Trans option:selected");
-			//$("select#Carb").val(optionSelected.attr('data-type'));
+			$("select#Carb").attr("disabled", "disabled");
+			$("select#Carb").val(optionSelected.attr('data-type'));
 		}
 		else
 		{
-			//$("select#Carb").removeAttr("disabled");
+			$("select#Carb").removeAttr("disabled");
 		}
-	});*/
+	});
 
 	//Action sur le click du bouton Lancer
 	buttonGeo.on("click", function(){

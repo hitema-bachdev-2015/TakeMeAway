@@ -7,7 +7,7 @@
 	$verification = Tools::checkToken($token);
 
 	if(count($verification) > 0){
-		header("location:../connexion.php");
+		header("location:../connexion.html?confirmation=ok");
 		// var_dump($verification);
 	}
 ?>

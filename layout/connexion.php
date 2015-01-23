@@ -2,8 +2,16 @@
    <h1 class="title">Connexion</h1>
 
     <?php 
-      if(isset($_GET['confirmattion']) && $_GET['confirmattion']=='error'){
+      if(isset($_GET['confirmation']) && $_GET['confirmation']=='error'){
         echo "<div class='notification notError'>Information érroné, inexistant ou non confirmé .</div>";
+      }
+      elseif(isset($_GET['confirmation']) && $_GET['confirmation']=='send')
+      {
+          echo "<div class='notification'>Un mail de confirmation a été envoyé à l'adresse indiquez, cliquez sur le lien se trouvant dans celui-ci pour valider votre inscription.</div>";
+      }
+      elseif(isset($_GET['confirmation']) && $_GET['confirmation']=='ok')
+      {
+          echo "<div class='notification'>Félicitation, vous venez de valider votre inscrpition sur TakeMeAway.</div>";
       }
     ?>
    <form action="" method="post" id="formConnexion">
@@ -52,7 +60,7 @@
             //console.log(result);
             if(result=="EMPTY")
             {
-               document.location.href='connexion.html?confirmattion=error';
+               document.location.href='connexion.html?confirmation=error';
             }
             else
             {

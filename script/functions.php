@@ -34,8 +34,9 @@ function thisMail($contenu, $sujet, $from, $mail){
     $async = false;
     $ip_pool = 'Main Pool';
     /*$send_at = 'example send_at';*/
-    $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
-    print_r($result);
+    //$result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
+    $result = $mandrill->messages->send($message, $async, $ip_pool);
+    //print_r($result);
     /*
     Array
     (
