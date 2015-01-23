@@ -8,7 +8,7 @@
         <div class="col-md-12">
         	<h4>LOCALISER UNE ADRESSE</h4>
           <div id="search">
-	            <input id="barreDeRecherche" type="text" placeholder='Rechercher...' />
+	            <input id="barreDeRecherche" type="text" placeholder='Rechercher...' onclick="cleanDirection()"/>
 	            <ul id="autoCompleteBdr"></ul>
             </div>
         </div>
@@ -44,7 +44,7 @@
               <h4>ITINERAIRE</h4>
               <label>
                 <span>Départ</span>:
-                <input id="StartAddress" type="text" />
+                <input id="StartAddress" type="text" onclick="suppMarkers()"/>
                 <ul id="autoComplete1"></ul>
               </label>
                 <label>

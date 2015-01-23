@@ -6,6 +6,9 @@ var coutDies=1.097;
 //Initialisation de l'api google map
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
+
+var markers=[];
+
 // Apres le chargement du document
 $(document).ready(function(){
 	$(".notification").fadeIn(500).delay(5000).fadeOut(500);
@@ -22,7 +25,6 @@ $(document).ready(function(){
 	var distance, temps, addDepart, addArrivee;
 	var barreDeRecherche=$("#barreDeRecherche");
 	var autoCompleteBdr=$("#autoCompleteBdr");
-
 	
 	//Action se déroulant lors du remplissage de l'input de Départ
 	adressInput1.on("keyup", function(e){
@@ -130,6 +132,8 @@ $(document).ready(function(){
       		map: map
   		});
 
+  		markers.push(marker)
+
 	});
 	
 	//Action sur le click du bouton Lancer
@@ -166,9 +170,30 @@ function initialize() {
   map = new google.maps.Map(document.getElementsByClassName("col-md-7")[0], mapOptions);
   directionsDisplay.setMap(map);
 }
+//pour supprimer les markers + recentrer la map
+function setAllMap(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+function suppMarker(){
+	setAllMap(null);
+}
+function suppMarkers(){
+	suppMarker();
+	markers = [];
+	map.setCenter(new google.maps.LatLng(48.856614, 2.3522219));
+}
+
+//fonction pour clean l'objet direction
+function cleanDirection(){
+	directionsDisplay.setMap(null);
+}
+
 //Fonction permettant de dessiner l'itinéraire d'un trajet sur la map
 //+ remplissage du détail des informations sur le trajet
 function drawItin(depart, arrivee){
+	directionsDisplay.setMap(map);
  	var Start=new google.maps.LatLng(depart.lat, depart.longit);
  	var End=new google.maps.LatLng(arrivee.lat, arrivee.longit);
     var request = {
