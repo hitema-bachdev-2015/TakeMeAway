@@ -1,18 +1,40 @@
-body {
-  background: #f9f9f9;
+body { 
+  background: url(../img/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
 }
+
 .title
 {
   text-align: center;
   margin-bottom: 55px;
-  background: #3CBA36;
+  background: #53C7B3;
   font-family: 'Montserrat', sans-serif;
   padding: 20px;
+  margin-top: -1px;
+  margin-left: -100px;
+  margin-right: -100px;
   color: #fff;
 }
 h4 
 {
   margin-top: 25px;
+}
+div h4
+{
+    text-align: center;
+    margin: 0 0 12px 0;
+    background: #53C7B3;
+    height: initial;
+    line-height: 20px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 12px;
+    border-radius: 8px 8px 0 0;
+    color:#fbfbfb;
 }
 .row 
 {
@@ -39,7 +61,7 @@ h4
 {
   padding: 0;
   background-color: #fff;
-  border: 1px solid rgb(48, 136, 48);
+  border: 1px solid #00E6B8;
   border-radius: 10px 10px 0 0;
 }
 
@@ -50,7 +72,7 @@ hr
 }
 
 .btn-style {
-  border : solid 1px #000000;
+  border : solid 1px #00E6B8;
   border-radius : 3px;
   moz-border-radius : 3px;
   -webkit-box-shadow : 0px 2px 2px rgba(0,0,0,0.4);
@@ -60,7 +82,7 @@ hr
   text-align: center;
   color : #000000;
   padding : 7px 13px;
-  background : #02cf02;
+  background : #53C7B3;
   background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#02cf02), color-stop(100%,#00be00));
   background : -moz-linear-gradient(top, #02cf02 0%, #00be00 100%);
   background : -webkit-linear-gradient(top, #02cf02 0%, #00be00 100%);
@@ -78,30 +100,16 @@ hr
   border: none;
   color: #fff;
   font-size: 16px;
-  background: #3CBA36;
+  background: #53C7B3;
 }
 .bouton:hover
 {
-  background : #4FE048;
+  background : #00E6B8;
 }
 .col-md-12 > .bouton
 {
   display: block;
   margin: 15px auto;
-}
-
-div h4
-{
-    text-align: center;
-    margin: 0 0 12px 0;
-    background: rgb(60, 186, 54);
-    height: initial;
-    line-height: 20px;
-    font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
-    padding: 12px;
-    border-radius: 10px 10px 0 0;
-    color:#fbfbfb;
 }
 .lienConnexion > div
 {
@@ -129,17 +137,16 @@ div h4
 
 #search input[type="text"] 
 {
-    /*background: url(../img/search-white.png) no-repeat 10px 6px #fcfcfc;*/
-    border: 1px solid #d1d1d1;
+    background: url(../img/search-white.png) no-repeat 10px 6px #fcfcfc;
+    border: 1px solid #00E6B8;
     font: bold 12px Arial,Helvetica,Sans-serif;
     color: #222;
     width: 95%!important;
     height: 50px;
-    border-radius: none!important;
     padding: 6px 15px 6px 35px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
@@ -229,9 +236,9 @@ ul#autoCompleteBdr
 #formConnexion 
 {
 background: #fff;
-  padding: 10px;
-  width: 390px;
-  margin: 0 auto;
+padding: 10px;
+width: 390px;
+margin: 0 auto 25%;
 }
 #formConnexion > div
 {
@@ -259,7 +266,7 @@ li:before {
 {
   margin: 10px auto;
   padding: 10px;
-  border: 1px solid rgb(60, 186, 54);
+  border: 1px solid #00E6B8;
   border-radius: 16px;
   color: #fff;
   display: none;
