@@ -53,6 +53,14 @@ class Tools {
         $query->execute(array("id" => $id));
     }
 
+
+    public static function updateUserPass($mdp, $email){
+        global $bdd;
+        $sql = "UPDATE utilisateur SET mdp=:mdp, connecte=1 WHERE email=:email";
+        $query = $bdd->prepare($sql);
+        $query->execute(array("mdp" => $mdp,"email" => $email));
+    }
+
     // Insertion d'une nouvelle utilisateur
     public static function infoUser($id){
         global $bdd;
@@ -65,7 +73,7 @@ class Tools {
 
     public static function connectUser($mail,$password){
         global $bdd;
-        $sql = "SELECT id FROM utilisateur WHERE email=:mail AND mdp=:password AND connecte=1";
+        $sql = "SELECT id FROM utilisateur WHERE email=:mail AND mdp=:password AND token='' ";
         $query = $bdd->prepare($sql);
         $query->execute(array("mail" => $mail, "password"=>$password));
         $reponse = $query->Fetch();

@@ -6,6 +6,7 @@ var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 // Apres le chargement du document
 $(document).ready(function(){
+	$(".notification").fadeIn(500).delay(5000).fadeOut(500);
 	initialize();
 	key="AIzaSyAA1ZHpUjDiK0ScA1SYZ7GIV8kDKe9HZtc";
 	urlApi="https://maps.googleapis.com/maps/api/geocode";

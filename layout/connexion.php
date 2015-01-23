@@ -1,6 +1,11 @@
 <div class="container">
    <h1 class="title">Connexion</h1>
 
+    <?php 
+      if(isset($_GET['confirmattion']) && $_GET['confirmattion']=='error'){
+        echo "<div class='notification notError'>Information érroné ou inexistant .</div>";
+      }
+    ?>
    <form action="" method="post" id="formConnexion">
       <center>
          <a href="accueil.php" class="bouton">Accueil</a>
@@ -44,9 +49,9 @@
             var result=jQuery.parseJSON(data);
             if(result=="EMPTY")
             {
-               $('form').attr("action", "");
+               document.location.href='connexion.html?confirmattion=error';
             }
-               document.location.href='accueil.php';
+               document.location.href='accueil.html?confirmattion=ok';
             }
       });
    });

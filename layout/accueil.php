@@ -13,7 +13,11 @@
             </div>
         </div>
 		</div>
-    <!-- <div class="notification">le message le message le message</div> -->
+    <?php 
+      if(isset($_GET['confirmattion']) && $_GET['confirmattion']=='ok'){
+        echo "<div class='notification notOk'>Vous êtes bien connecté sur TakeMeAway.</div>";
+      }
+    ?>
       <div class="row">
         <div class="col-md-4" style="padding-top: 0;padding-bottom: 0;background-color: rgba(0, 0, 0, 0);border: 0;">
           <div class="row lienConnexion">

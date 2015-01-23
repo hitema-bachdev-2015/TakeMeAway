@@ -254,3 +254,20 @@ li {list-style-type: none;}
 li:before {
     content: "→ "; /* caractère UTF-8 */
 }
+.notification
+{
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid rgb(60, 186, 54);
+  border-radius: 16px;
+  color: #fff;
+  display: none;
+}
+.notOk
+{
+  background: rgba(60, 186, 54, 0.6);
+}
+.notError
+{
+  background: #DD4A4A;
+}
