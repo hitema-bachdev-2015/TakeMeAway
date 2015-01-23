@@ -392,7 +392,7 @@ function drawItin(depart, arrivee){*
       	$("#autoComplete4").append("<li data-depart='"+addDepart+"'>Départ : "+addDepart+"</li>");
       	$("#autoComplete4").append("<li data-destination='"+addArrivee+"'>Destination : "+addArrivee+"</li>");
       	$("#autoComplete4").append("<li data-time='"+response.routes[0].legs[0].duration.value+"'>Temps : "+temps+"</li>");
-      	$("#autoComplete4").append("<li data-distance='"+distance+"'>Distance : "+distance+" mètres</li>");
+      	$("#autoComplete4").append("<li data-distance='"+distance+"'>Distance : "+Math.round(distance/1000)+" Kilomètres</li>");
     	$("#autoComplete4").append("<li data-type_voiture='"+vehic.id+"'>Locomotion : "+vehic.nom+"</li>");
     	$("#autoComplete4").append("<li data-conso="+vehic.conso+">Consommation : "+vehic.conso+" L/100km</li>");
     	$("#autoComplete4").append("<li data-carbu="+vehic.carbu+">Carburant : "+vehic.carbu+"</li>");
