@@ -58,7 +58,9 @@
                         <a  class='lien_voiture' href='?id=" . $listeVehicule[$i]['id'] . "'>
                           <span>".$listeVehicule[$i]['marque']."</span>
                           <span>".$listeVehicule[$i]['modele']."</span>
-                          <span>".$listeVehicule[$i]['type_moteur']."</span>
+                          <span>"; 
+                            echo $listeVehicule[$i]['type_moteur'] == 0 ? 'Essence' : 'Diesel';
+              echo        "</span>
                         </a>
                       </li>
                     ";
@@ -122,7 +124,9 @@
                         <a href='?id=" . $listeVehicule[$i]['id'] . "'>
                           <span>".$listeVehicule[$i]['marque']."</span>
                           <span>".$listeVehicule[$i]['modele']."</span>
-                          <span>".$listeVehicule[$i]['type_moteur']."</span>
+                          <span>"; 
+                            echo $listeVehicule[$i]['type_moteur'] == 0 ? 'Essence' : 'Diesel';
+              echo        "</span>
                         </a>
                       </li>
                     ";
