@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 	<!-- insertion des fonts css de google -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <?php 

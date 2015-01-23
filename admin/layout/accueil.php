@@ -1,6 +1,6 @@
 
 <div id="tabs" class="row">
-  <h1>Vehicule(s) Personnel(s)</h1>
+  <h1 class="title">Vehicule(s) Personnel(s)</h4>
   <?php 
     if(isset($_GET['modification'])){
       echo "<div class='notification modification'>Votre modification a bien été éffectué.</div>";
