@@ -47,12 +47,16 @@
          data: {login : login,mdp : mdp}, 
          success: function(data){
             var result=jQuery.parseJSON(data);
+            //console.log(result);
             if(result=="EMPTY")
             {
                document.location.href='connexion.html?confirmattion=error';
             }
+            else
+            {
                document.location.href='accueil.html?confirmattion=ok';
             }
+         }
       });
    });
       

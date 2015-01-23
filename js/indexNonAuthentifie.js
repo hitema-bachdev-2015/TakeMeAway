@@ -1,6 +1,8 @@
 // Mes variables
 var urlApi, key;
 var map;
+var coutEss=1.352;
+var coutDies=1.097;
 //Initialisation de l'api google map
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
@@ -18,7 +20,6 @@ $(document).ready(function(){
 	var autoCompleteUL2=$("#autoComplete2");
 	var latDepart, latArrivee, longDepart, longArrivee;
 	var distance, temps, addDepart, addArrivee;
-
 	var barreDeRecherche=$("#barreDeRecherche");
 	var autoCompleteBdr=$("#autoCompleteBdr");
 
@@ -194,6 +195,12 @@ function drawItin(depart, arrivee){
       	temps=response.routes[0].legs[0].duration.text;
       	addDepart=response.routes[0].legs[0].start_address;
       	addArrivee=response.routes[0].legs[0].end_address;
+      	var conso=(vehic.conso*distance)/100000;
+    	var trajet={
+    		conso: parseFloat(conso),
+    		prixDies: coutDies*conso,
+    		prixEss: coutEss*conso
+    	};
       	//Remplissage de la Partie INFO CONSO
       	$("#autoComplete4").empty();
       	$("#autoComplete4").append("<li data-depart='"+addDepart+"'>Départ : "+addDepart+"</li>");
@@ -203,6 +210,18 @@ function drawItin(depart, arrivee){
     	$("#autoComplete4").append("<li data-type_voiture='"+vehic.id+"'>Locomotion : "+vehic.nom+"</li>");
     	$("#autoComplete4").append("<li data-conso="+vehic.conso+">Consommation : "+vehic.conso+" L/100km</li>");
     	$("#autoComplete4").append("<li data-carbu="+vehic.carbu+">Carburant : "+vehic.carbu+"</li>");
+    	$("#autoComplete4").append("<li data-consoTrajet="+trajet.conso+">Consommation Trajet : "+Math.round(trajet.conso*100)/100+" Litres</li>");
+    	switch(vehic.carbu)
+    	{
+    		case "Essence":
+    			$("#autoComplete4").append("<li data-prixTrajet="+trajet.prixEss+">Prix Carburant Trajet : "+Math.round(trajet.prixEss*100)/100+" €</li>");
+    			break;
+    		case "Diesel":
+    			$("#autoComplete4").append("<li data-prixTrajet="+trajet.prixDies+">Prix Carburant Trajet : "+Math.round(trajet.prixDies*100)/100+" €</li>");
+    			break;
+    		default:
+    			break;
+    	}
     }
   });
 }

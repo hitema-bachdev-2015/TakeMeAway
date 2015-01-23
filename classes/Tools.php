@@ -73,7 +73,7 @@ class Tools {
 
     public static function connectUser($mail,$password){
         global $bdd;
-        $sql = "SELECT id FROM utilisateur WHERE email=:mail AND mdp=:password AND token='' ";
+        $sql = "SELECT id FROM utilisateur WHERE email=:mail AND mdp=:password";
         $query = $bdd->prepare($sql);
         $query->execute(array("mail" => $mail, "password"=>$password));
         $reponse = $query->Fetch();
