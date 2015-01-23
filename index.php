@@ -16,7 +16,6 @@
 	}elseif ($page == 'connexion.html?confirmattion=error') {
 		$page ="connexion.php";
 	}
-
 	include("script/".$page);
 	include("layout/".$page);
 
