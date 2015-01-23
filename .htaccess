@@ -1,17 +1,6 @@
-#Options -Indexes
-
-
-#Autres redirections
-#RewriteRule ^index.php										index.php?pg=accueil  [L]
-
-
-#Erreurs
-#ErrorDocument 404 /
-#ErrorDocument 403 /
-
-
 Options followsymlinks
 RewriteEngine ON
+
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

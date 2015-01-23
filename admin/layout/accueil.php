@@ -10,6 +10,9 @@
        echo "<div class='notification modification'>Votre ajout a bien été éffectué.</div>";
     }
   ?>
+  <center>
+    <a href="../accueil.php" class="bouton">Accueil</a>
+  </center>
   <ul>
     <li><a href="#monVehicule"><?php if(isset($_GET['id'])) echo "Modification"; else echo "Ajout"; ?> véhicule </a></li>
     <li><a href="#profil">Profil</a></li>
