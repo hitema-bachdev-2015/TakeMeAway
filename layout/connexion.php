@@ -28,6 +28,8 @@
 
 <script type="text/javascript">
 
+//Boutons de la page Connexion
+//Disparitions au click 
    $("#mdpf").on('click', function(){
       $(this).hide();
       $("#lfp").hide();
@@ -40,7 +42,7 @@
    $("#btnConnect").on('click', function(){
       var login   = $("#login").val();
       var mdp     = $("#mdp").val();
-
+//Envoi des donnes JS dans la bdd
       $.ajax({
          url: 'ajax/connexion.php',
          type: "POST",
